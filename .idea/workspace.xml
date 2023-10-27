@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="845726e5-9aba-4c5f-ac03-0b080f3f22bb" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/release.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/release.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.github/workflows/playground.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/playground/vite.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/playground/vite.config.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,7 +36,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "chore/setup-project",
+    "git-widget-placeholder": "main",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -60,7 +61,7 @@
       <option name="presentableId" value="Default" />
       <updated>1698401097752</updated>
       <workItem from="1698401100736" duration="22000" />
-      <workItem from="1698401129124" duration="3073000" />
+      <workItem from="1698401129124" duration="3362000" />
     </task>
     <servers />
   </component>

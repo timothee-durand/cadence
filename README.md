@@ -1,4 +1,4 @@
-# iim-pfe-23-24
+# Cadence
 
 # What's Cadence.js ?
 - Play standards sample with function which is includes.

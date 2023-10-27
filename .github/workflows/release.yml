@@ -11,9 +11,13 @@ jobs:
       # Setup .npmrc file to publish to npm
       - uses: actions/setup-node@v3
         with:
-          node-version: '20.x'
+          node-version: '18.16.0'
           registry-url: 'https://registry.npmjs.org'
-      - run: npm ci
-      - run: npm publish
+      - name: Install Dependencies
+        working-directory: ./src/cadence
+        run: npm ci
+      - name: Publish to NPM
+        working-directory: ./src/cadence
+        run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

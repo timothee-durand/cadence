@@ -10,7 +10,7 @@
 - Develop in Typescript.
 - High possibility of creativity.
 
-Features :
+# Features :
 - Can read samples.
 - Can create intervale between different samples.
 - Possible to modify some paramaters on Samples like the amplitudes, speed, volume... and more possibly.

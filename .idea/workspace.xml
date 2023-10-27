@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="845726e5-9aba-4c5f-ac03-0b080f3f22bb" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/playground.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/playground.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/workflows/release.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/release.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/playground/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/playground/pnpm-lock.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +60,7 @@
       <option name="presentableId" value="Default" />
       <updated>1698401097752</updated>
       <workItem from="1698401100736" duration="22000" />
-      <workItem from="1698401129124" duration="3767000" />
+      <workItem from="1698401129124" duration="4019000" />
     </task>
     <servers />
   </component>

@@ -9,6 +9,9 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
+env:
+  BASE_PATH: './src/playground'
+
 # Sets the GITHUB_TOKEN permissions to allow deployment to GitHub Pages
 permissions:
   contents: read
@@ -34,13 +37,16 @@ jobs:
         name: Install pnpm
         with:
           version: 7
-          run_install: true
       - name: Install Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18
           cache: 'pnpm'
+      - name: Install
+        working-directory: ${{ env.BASE_PATH }}
+        run: pnpm i --frozen-lockfile
       - name: Build
+        working-directory: ${{ env.BASE_PATH }}
         run: pnpm run build
       - name: Setup Pages
         uses: actions/configure-pages@v3
@@ -48,7 +54,7 @@ jobs:
         uses: actions/upload-pages-artifact@v1
         with:
           # Upload dist repository
-          path: './dist'
+          path: '${{ env.BASE_PATH }}/dist'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1

@@ -5,9 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="845726e5-9aba-4c5f-ac03-0b080f3f22bb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/pnpm-workspace.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cadence/src/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cadence/tsconfig.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.github/workflows/release.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/release.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -38,7 +35,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "chore/setup-project",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -63,7 +60,7 @@
       <option name="presentableId" value="Default" />
       <updated>1698401097752</updated>
       <workItem from="1698401100736" duration="22000" />
-      <workItem from="1698401129124" duration="2625000" />
+      <workItem from="1698401129124" duration="3073000" />
     </task>
     <servers />
   </component>

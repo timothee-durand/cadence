@@ -7,3 +7,11 @@ Librairie qui donne une api ts pour des modèles pré-entrainés d'intelligence 
 ## Scribbletune
 **URL** : https://scribbletune.com/
 
+## Tone
+**URL** : https://tonejs.github.io/examples/
+
+## Howler
+**URL** : https://howlerjs.com/
+
+## Sonic Pi
+**URL** : https://sonic-pi.net/

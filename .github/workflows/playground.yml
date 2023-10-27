@@ -44,7 +44,7 @@ jobs:
           cache: 'pnpm'
       - name: Install
         working-directory: ${{ env.BASE_PATH }}
-        run: pnpm i --frozen-lockfile
+        run: pnpm i
       - name: Build
         working-directory: ${{ env.BASE_PATH }}
         run: pnpm run build

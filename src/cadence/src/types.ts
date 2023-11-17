@@ -25,12 +25,15 @@ export interface Loop {
 
 export type Song = Loop[]
 
-export interface Cadence {
+
+export interface AbstractCadence {
     play(song: Song): void
 
     play(loop: Loop): void
 
+    play(): void
+
     add(loop: Loop): void
 
-    stop(loop: Loop): void
+    stop(): void
 }

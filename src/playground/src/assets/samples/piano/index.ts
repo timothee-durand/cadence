@@ -1,1 +1,0 @@
-export { pianoDirectory } from "./directory"

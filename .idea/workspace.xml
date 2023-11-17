@@ -5,11 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="845726e5-9aba-4c5f-ac03-0b080f3f22bb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/cadence/src/types.ts" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cadence/src/types/Sample.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cadence/src/types/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cadence/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/cadence/README.md" afterDir="false" />
+=======
+      <change afterPath="$PROJECT_DIR$/src/playground/src/addMonacco.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/playground/src/components/ui/codeeditor/CodeEditor.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/playground/src/components/ui/codeeditor/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/playground/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/playground/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/playground/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/playground/src/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/playground/src/assets/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/playground/src/assets/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/playground/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/playground/src/main.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/playground/src/views/HomeView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/playground/src/views/HomeView.vue" afterDir="false" />
+>>>>>>> parent of 9105f81 (Add directory generation script (#14))
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +30,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Vue Composition API Component" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -41,12 +52,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+<<<<<<< HEAD
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;chore/add-eslint-cadence&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/timothee/CODE/COURS/iim-pfe-23-24/src/cadence/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+=======
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "feat/add-type",
+    "git-widget-placeholder": "feat/add-shadcn",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -54,20 +80,42 @@
     "nodejs_package_manager_path": "npm",
     "ts.external.directory.path": "/Users/timothee/CODE/COURS/iim-pfe-23-24/src/cadence/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
+>>>>>>> parent of 9105f81 (Add directory generation script (#14))
   },
-  "keyToStringList": {
-    "vue.recent.templates": [
-      "Vue Composition API Component"
+  &quot;keyToStringList&quot;: {
+    &quot;vue.recent.templates&quot;: [
+      &quot;Vue Composition API Component&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/cadence/src/utils" />
       <recent name="$PROJECT_DIR$/src/cadence" />
       <recent name="$PROJECT_DIR$/examples" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="npm.lint:fix">
+    <configuration name="lint" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/src/cadence/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="lint" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="lint:fix" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/src/cadence/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="lint:fix" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <configuration name="playground" type="js.build_tools.npm" temporary="true">
       <package-json value="$PROJECT_DIR$/src/playground/package.json" />
       <command value="run" />
@@ -78,8 +126,21 @@
       <envs />
       <method v="2" />
     </configuration>
+    <configuration name="test" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/src/cadence/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="test" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.lint:fix" />
+        <item itemvalue="npm.lint" />
+        <item itemvalue="npm.test" />
         <item itemvalue="npm.playground" />
       </list>
     </recent_temporary>

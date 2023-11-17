@@ -1,1 +1,0 @@
-export { tubaDirectory } from "./directory"

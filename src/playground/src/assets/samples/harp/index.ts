@@ -1,1 +1,0 @@
-export { harpDirectory } from "./directory"

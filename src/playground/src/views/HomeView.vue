@@ -1,9 +1,13 @@
 <script setup lang="ts">
-import TheWelcome from '../components/TheWelcome.vue'
+
+import {ref} from "vue";
+import CodeEditor from "@/components/ui/codeeditor/CodeEditor.vue";
+
+const code = ref('const coucou = "coucou"');
 </script>
 
 <template>
   <main>
-    <TheWelcome />
+    <CodeEditor v-model:code="code" />
   </main>
 </template>

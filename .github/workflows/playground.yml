@@ -47,7 +47,7 @@ jobs:
         run: pnpm i
       - name: Build
         working-directory: ${{ env.BASE_PATH }}
-        run: pnpm run build
+        run: APP_ENV=production  pnpm run build
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Upload artifact

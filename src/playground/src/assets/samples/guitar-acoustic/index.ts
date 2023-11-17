@@ -1,1 +1,0 @@
-export { guitar-acousticDirectory } from "./directory"

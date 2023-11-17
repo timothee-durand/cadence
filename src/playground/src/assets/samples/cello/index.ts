@@ -1,1 +1,0 @@
-export { celloDirectory } from "./directory"

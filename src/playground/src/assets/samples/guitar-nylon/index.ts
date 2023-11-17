@@ -1,1 +1,0 @@
-export { guitar-nylonDirectory } from "./directory"

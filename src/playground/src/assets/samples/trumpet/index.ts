@@ -1,1 +1,0 @@
-export { trumpetDirectory } from "./directory"

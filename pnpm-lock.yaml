@@ -35,6 +35,11 @@ importers:
       lucide-react:
         specifier: ^0.292.0
         version: 0.292.0(react@18.2.0)
+
+      cadence-js:
+        specifier: workspace:*
+        version: link:../cadence
+
       react:
         specifier: ^18.2.0
         version: 18.2.0

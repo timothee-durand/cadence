@@ -5,12 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="845726e5-9aba-4c5f-ac03-0b080f3f22bb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/cadence/src/types/Sample.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cadence/src/types/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/playground/generate-files.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cadence/src/types.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cadence/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/cadence/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cadence/src/types/Sample.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cadence/src/types/index.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/playground/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/playground/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -48,7 +46,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "feat/add-type",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",

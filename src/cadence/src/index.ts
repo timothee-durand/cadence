@@ -1,6 +1,3 @@
-export * from "./types"
-
-
 export function helloWorld() {
   console.log('Hello World')
 }

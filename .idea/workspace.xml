@@ -10,6 +10,10 @@
       <change beforePath="$PROJECT_DIR$/src/cadence/src/types/Sample.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cadence/src/types/index.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/playground/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/playground/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/playground/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/playground/src/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/playground/src/assets/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/playground/src/assets/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/playground/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/playground/src/main.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/playground/src/views/HomeView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/playground/src/views/HomeView.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

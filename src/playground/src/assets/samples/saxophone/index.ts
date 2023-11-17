@@ -1,1 +1,0 @@
-export { saxophoneDirectory } from "./directory"

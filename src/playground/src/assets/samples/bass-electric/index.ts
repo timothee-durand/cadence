@@ -1,1 +1,0 @@
-export { bass-electricDirectory } from "./directory"

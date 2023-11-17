@@ -1,1 +1,0 @@
-export { xylophoneDirectory } from "./directory"

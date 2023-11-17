@@ -5,21 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="845726e5-9aba-4c5f-ac03-0b080f3f22bb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/cadence/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/playground/src/addMonacco.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/playground/src/components/ui/codeeditor/CodeEditor.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/playground/src/components/ui/codeeditor/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/playground/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/playground/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/playground/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/playground/src/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/playground/src/assets/base.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/playground/src/assets/main.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/playground/src/components/HelloWorld.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/playground/src/components/TheWelcome.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/playground/src/components/WelcomeItem.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/playground/src/components/icons/IconCommunity.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/playground/src/components/icons/IconDocumentation.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/playground/src/components/icons/IconEcosystem.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/playground/src/components/icons/IconSupport.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/playground/src/components/icons/IconTooling.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/playground/src/assets/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/playground/src/assets/index.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/playground/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/playground/src/main.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/playground/src/views/HomeView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/playground/src/views/HomeView.vue" afterDir="false" />
     </list>
@@ -27,6 +20,13 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Vue Composition API Component" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -46,26 +46,48 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/timothee/CODE/COURS/iim-pfe-23-24/src/cadence/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "feat/add-shadcn",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "/Users/timothee/CODE/COURS/iim-pfe-23-24/src/cadence/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "vue.recent.templates": [
+      "Vue Composition API Component"
+    ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/cadence" />
       <recent name="$PROJECT_DIR$/examples" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="playground" type="js.build_tools.npm" temporary="true">
+      <package-json value="$PROJECT_DIR$/src/playground/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.playground" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -76,7 +98,9 @@
       <option name="presentableId" value="Default" />
       <updated>1698401097752</updated>
       <workItem from="1698401100736" duration="22000" />
-      <workItem from="1698401129124" duration="7925000" />
+      <workItem from="1698401129124" duration="8190000" />
+      <workItem from="1698416739131" duration="64000" />
+      <workItem from="1700208688030" duration="2455000" />
     </task>
     <servers />
   </component>

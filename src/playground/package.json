@@ -12,11 +12,13 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@guolao/vue-monaco-editor": "^1.4.0",
     "@vueuse/core": "^10.5.0",
     "cadence-js": "workspace:^0.0.1",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "lucide-vue-next": "^0.290.0",
+    "monaco-editor": "^0.43.0",
     "tailwind-merge": "^1.14.0",
     "tailwindcss-animate": "^1.0.7",
     "vue": "^3.3.4",

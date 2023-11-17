@@ -1,9 +1,13 @@
 <script setup lang="ts">
-import Textarea from "@/components/ui/textarea/Textarea.vue";
+
+import {ref} from "vue";
+import CodeEditor from "@/components/ui/codeeditor/CodeEditor.vue";
+
+const code = ref('const coucou = "coucou"');
 </script>
 
 <template>
   <main>
-    <Textarea/>
+    <CodeEditor v-model:code="code" />
   </main>
 </template>

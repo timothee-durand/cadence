@@ -1,6 +1,5 @@
-export * from "./types"
-
-
+export * from './types'
+export {Cadence} from './Cadence'
 export function helloWorld() {
   console.log('Hello World')
 }

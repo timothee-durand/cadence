@@ -23,6 +23,9 @@ importers:
 
   src/playground:
     dependencies:
+      cadence-js:
+        specifier: workspace:*
+        version: link:../cadence
       react:
         specifier: ^18.2.0
         version: 18.2.0

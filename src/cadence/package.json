@@ -1,6 +1,7 @@
 {
   "name": "cadence-js",
-  "version": "0.0.1",
+  "version": "0.0.2",
+  "repository": "https://github.com/timothee-durand/cadence",
   "description": "A typescript library to create music with code.",
   "main": "src/index.ts",
   "scripts": {

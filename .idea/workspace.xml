@@ -5,16 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="845726e5-9aba-4c5f-ac03-0b080f3f22bb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.github/workflows/push.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cadence/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/cadence/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cadence/src/AudioLoader.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/cadence/src/AudioLoader.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cadence/src/Cadence.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/cadence/src/Cadence.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cadence/src/LoadedLoop.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/cadence/src/LoadedLoop.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cadence/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/cadence/src/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cadence/src/utils/convertTimeToMs.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/cadence/src/utils/convertTimeToMs.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cadence/src/utils/convertTimeToMs.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/cadence/src/utils/convertTimeToMs.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/push.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/push.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +43,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "feat/add-play-loop-v1",
+    "git-widget-placeholder": "chore/add-eslint-cadence",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",

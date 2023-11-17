@@ -5,16 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="845726e5-9aba-4c5f-ac03-0b080f3f22bb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/playground/src/addMonacco.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/playground/src/components/ui/codeeditor/CodeEditor.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/playground/src/components/ui/codeeditor/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cadence/src/types/Sample.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cadence/src/types/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/playground/generate-files.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cadence/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/cadence/src/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/playground/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/playground/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/playground/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/playground/src/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/playground/src/assets/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/playground/src/assets/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/playground/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/playground/src/main.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/playground/src/views/HomeView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/playground/src/views/HomeView.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +48,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "feat/add-shadcn",
+    "git-widget-placeholder": "main",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",

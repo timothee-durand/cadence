@@ -2,6 +2,9 @@
   "include": [
     "./src/**/*.ts"
   ],
+  "exclude": [
+    "node_modules"
+  ],
   "compilerOptions": {
     "target": "ES2018"
     /* Specify ECMAScript target version: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017', 'ES2018', 'ES2019', 'ES2020', or 'ESNEXT'. */,
@@ -9,6 +12,7 @@
     /* Generates corresponding '.d.ts' file. */,
     "declarationMap": true
     /* Generates a sourcemap for each corresponding '.d.ts' file. */,
+    "preserveSymlinks": true,
     "sourceMap": true
     /* Generates corresponding '.map' file. */,
     "downlevelIteration": true
@@ -47,10 +51,7 @@
       "@types",
       "./types"
     ],
-    "types": [
-      "mocha",
-      "chai"
-    ]
+    "types": []
     /* Type declaration files to be included in compilation. */,
     "allowSyntheticDefaultImports": true
     /* Allow default imports from modules with no default export. This does not affect code emit, just typechecking. */,

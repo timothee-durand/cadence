@@ -22,13 +22,13 @@ import Ds4 from "./Ds4.mp3"
 import E2 from "./E2.mp3"
 import E3 from "./E3.mp3"
 import E4 from "./E4.mp3"
-import F2 v2 from "./F2 v2.mp3"
+import F2_v2 from "./F2 v2.mp3"
 import F2 from "./F2.mp3"
 import F3 from "./F3.mp3"
 import F4 from "./F4.mp3"
 import Fs3 from "./Fs3.mp3"
 import Fs4 from "./Fs4.mp3"
-import G2 v2 from "./G2 v2.mp3"
+import G2_v2 from "./G2 v2.mp3"
 import G2 from "./G2.mp3"
 import G3 from "./G3.mp3"
 import G4 from "./G4.mp3"
@@ -62,13 +62,13 @@ export const directory : SampleDirectory = {
 		{ name: 'E2', path: E2 },
 		{ name: 'E3', path: E3 },
 		{ name: 'E4', path: E4 },
-		{ name: 'F2 v2', path: F2 v2 },
+		{ name: 'F2_v2', path: F2_v2 },
 		{ name: 'F2', path: F2 },
 		{ name: 'F3', path: F3 },
 		{ name: 'F4', path: F4 },
 		{ name: 'Fs3', path: Fs3 },
 		{ name: 'Fs4', path: Fs4 },
-		{ name: 'G2 v2', path: G2 v2 },
+		{ name: 'G2_v2', path: G2_v2 },
 		{ name: 'G2', path: G2 },
 		{ name: 'G3', path: G3 },
 		{ name: 'G4', path: G4 },

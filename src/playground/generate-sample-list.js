@@ -28,7 +28,7 @@ async function listFiles(directory) {
 function extractName(path) {
     const parts = path.split('/')
     const name = parts[parts.length - 1]
-    return name.replace('.mp3', '')
+    return name.replace('.mp3', '').split(' ').join('_')
 }
 
 function extractFileName(path) {

@@ -17,7 +17,7 @@
     /* Generates corresponding '.map' file. */,
     "downlevelIteration": true
     /* Provide full support for iterables in 'for-of', spread, and destructuring when targeting 'ES5' or 'ES3'. */,
-    "isolatedModules": true,
+    "isolatedModules": false,
     /* Transpile each file as a separate module (similar to 'ts.transpileModule'). */
 
     /* Strict Type-Checking Options */

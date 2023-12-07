@@ -5,9 +5,10 @@
     "src/**/*.test.ts"
   ],
   "compilerOptions": {
-    "outDir": "../playground/public/cadence",
+    "module": false,
+    "outFile": "../playground/public/cadence.js",
     "declarationMap": false,
     "declaration": false,
-    "isolatedModules": true,
+    "isolatedModules": false,
   }
 }

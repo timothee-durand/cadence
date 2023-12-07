@@ -47,6 +47,9 @@ importers:
       '@radix-ui/react-slot':
         specifier: ^1.0.2
         version: 1.0.2(@types/react@18.2.37)(react@18.2.0)
+      '@swc/wasm-web':
+        specifier: ^1.3.100
+        version: 1.3.100
       cadence-js:
         specifier: workspace:*
         version: link:../cadence
@@ -1227,6 +1230,10 @@ packages:
   /@swc/types@0.1.5:
     resolution: {integrity: sha512-myfUej5naTBWnqOCc/MdVOLVjXUXtIA+NpDrDBKJtLLg2shUjBu3cZmB/85RyitKc55+lUUyl7oRfLOvkr2hsw==}
     dev: true
+
+  /@swc/wasm-web@1.3.100:
+    resolution: {integrity: sha512-Bl904boH3kVFfaBDiFAnDspQJgMppU5ZQAJLPG0avJ3Td83Hod4dppBvvApqkU5hzKsRehCH1g36c+UNUwWcUw==}
+    dev: false
 
   /@szmarczak/http-timer@4.0.6:
     resolution: {integrity: sha512-4BAffykYOgO+5nzBWYwE3W90sBgLJoUPRWWcL8wlyiM8IB8ipJz3UMJ9KXQd1RKQXpKp8Tutn80HZtWsu2u76w==}

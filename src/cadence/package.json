@@ -9,7 +9,7 @@
     "coverage": "vitest run --coverage",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
-    "generate:types": "tsc --project tsconfig.build.json"
+    "generate:playground": "tsc --project tsconfig.playground-bundle.json && tsc --project tsconfig.playground-declaration.json"
   },
   "keywords": [],
   "author": "",

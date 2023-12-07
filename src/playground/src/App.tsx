@@ -3,22 +3,27 @@ import {Button} from "@/components/ui/button"
 import Editor, {Monaco} from '@monaco-editor/react';
 import {SampleDirectory} from "@/assets/samples/types.ts";
 import {sampleDirectories} from "@/assets/samples";
+import {CadencePlayer} from "@/components/player.tsx";
+import {useEffect, useState} from "react";
 
 const baseValue = `
-import {Loop} from "types";
+import {Loop, Cadence} from "cadence-js";
+import {E2} from "guitar-nylon";
+
+const cadence = new Cadence();
 const loop: Loop = {
     interval: "1s",
-    speed: 1
+    speed: 1,
+    sample: E2
 }
-
-export default loop
+cadence.play(loop)
 `
 
 
-async function fetchCadenceTypes (): Promise<string> {
+async function fetchCadenceTypes(): Promise<string> {
     try {
         const types = await fetch('cadence.d.ts').then((res) => res.text());
-        return types
+        return types.replace("declare module \"index\"", 'declare module "cadence-js"')
     } catch (e) {
         console.error(e);
         return ''
@@ -43,14 +48,9 @@ function makeDeclarationFile(sampleDirectories: SampleDirectory[]): string {
 
 async function createEditor(monaco: Monaco) {
     const types = await fetchCadenceTypes();
-    console.log("types", types)
-    // const libUri = 'ts:filename/cadence.d.ts';
     const samplesDeclaration = makeDeclarationFile(sampleDirectories);
-    console.log("samplesDeclaration", samplesDeclaration)
     monaco.languages.typescript.typescriptDefaults.addExtraLib(types, "cadence-js");
     monaco.languages.typescript.typescriptDefaults.addExtraLib(samplesDeclaration, "samples");
-    console.log("cadence types")
-    console.log( monaco.languages.typescript.typescriptDefaults.getExtraLibs())
     monaco.languages.typescript.typescriptDefaults.setCompilerOptions({
         allowNonTsExtensions: true,
         noLib: true
@@ -59,13 +59,19 @@ async function createEditor(monaco: Monaco) {
 
 
 function App() {
+    const [code, setCode] = useState<string>('')
+    const [mustPlay, setMustPlay] = useState<boolean>(false)
+
+    useEffect(() => {
+        setCode(baseValue)
+    }, []);
 
     return (
         <>
             <div className="bg-slate-800">
                 <div className="flex justify-center">
-                    <Button variant="outline">Play</Button>
-                    <Button variant="outline">Stop</Button>
+                    <Button variant="outline" onClick={() => setMustPlay(true)}>Play</Button>
+                    <Button variant="outline" onClick={()=> setMustPlay(false)}>Stop</Button>
                 </div>
             </div>
             <div>Export default the loop that you want</div>
@@ -75,8 +81,13 @@ function App() {
                 theme="vs-dark"
                 defaultLanguage="typescript"
                 beforeMount={createEditor}
-                defaultValue={baseValue}
+                defaultValue={code}
+                onChange={(value) => {
+                    setCode(value ?? '')
+                }
+                }
             />;
+            <CadencePlayer cadenceCode={code} mustPlay={mustPlay}/>
         </>
     )
 }

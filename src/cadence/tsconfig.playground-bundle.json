@@ -1,0 +1,13 @@
+{
+  "extends": "./tsconfig.json",
+  "exclude": [
+    "src/**/*.spec.ts",
+    "src/**/*.test.ts"
+  ],
+  "compilerOptions": {
+    "outDir": "../playground/public/cadence",
+    "declarationMap": false,
+    "declaration": false,
+    "isolatedModules": true,
+  }
+}

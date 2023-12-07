@@ -1,11 +1,9 @@
 import fs from 'fs/promises'
 
-const BASE_PATH = process.cwd() + '/src/assets/samples';
+const BASE_PATH = process.cwd() + '/public/samples';
 
-const directoryTemplate = `import { SampleDirectory } from '../types'
-{{ fileImports }}
-
-export const directory : SampleDirectory = {
+const directoryTemplate = `
+const directory{{index}} : SampleDirectory = {
     name: "{{name}}",
     samples: [
         {{ listFiles }}
@@ -34,13 +32,14 @@ function extractName(path) {
 function extractFileName(path) {
     const parts = path.split('/')
     const name = parts[parts.length - 1]
-    return `./${name}`
+    return `/${name}`
 }
 
-function fileAsSample(files) {
+function fileAsSample(files, directory) {
     return files.map(file => {
         let fileName = extractName(file);
-        return `{ name: '${fileName}', path: ${fileName} }`
+        let filePath = extractFileName(file);
+        return `{ name: '${fileName}', path: "/samples/${directory}/${filePath}" }`
     })
 }
 
@@ -51,30 +50,30 @@ function fileAsImport(files) {
 
 }
 
-function fileContent(files, name) {
-    const list = fileAsSample(files).join(',\n\t\t')
-    const imports = fileAsImport(files).join('\n')
-    return directoryTemplate.replace('{{ listFiles }}', list).replace('{{ fileImports }}', imports).replace(/\{\{name}}/g, name).replace('{{directoryName}}', name)
+function fileContent(files, name, index) {
+    const list = fileAsSample(files, name).join(',\n\t\t')
+    return directoryTemplate.replace('{{ listFiles }}', list).replace(/\{\{name}}/g, name).replace('{{directoryName}}', name).replace('{{index}}', index)
 }
 
 
 function globalIndexContent(directories) {
-    const imports = directories.map((dir, i) => `import { directory as directory${i} } from './${dir}'`).join('\n')
     const exports = directories.map((_, i) => `directory${i}`).join(',\n\t')
-    return `${imports}\n\nexport const sampleDirectories = [\n\t${exports}\n]`
+    return `export const sampleDirectories : SampleDirectory[] = [\n\t${exports}\n]`
 }
 
 async function main() {
     const directories = (await fs.readdir(BASE_PATH)).filter(dir => !dir.endsWith(".ts"))
     console.log(`Generating samples ${BASE_PATH}`)
+    let globalIndex = 'import { SampleDirectory } from \'./samplesTypes\'\n'
+    let i = 0
     for (const directory of directories) {
         const files = await listFiles(`${BASE_PATH}/${directory}`)
-        const content = fileContent(files, directory)
-        await fs.writeFile(`${BASE_PATH}/${directory}/directory.ts`, content)
-        await fs.writeFile(`${BASE_PATH}/${directory}/index.ts`, indexTemplate)
+        const content = fileContent(files, directory, i)
+        globalIndex += content + '\n'
         console.log(`Generated ${directory}`)
+        i++
     }
-    await fs.writeFile(`${BASE_PATH}/index.ts`, globalIndexContent(directories))
+    await fs.writeFile(`./src/assets-list.ts`, globalIndex +  globalIndexContent(directories))
 
 }
 

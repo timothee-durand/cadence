@@ -1,13 +1,14 @@
 import './index.css'
 import {Button} from "@/components/ui/button"
 import Editor, {Monaco} from '@monaco-editor/react';
-import {SampleDirectory} from "@/assets/samples/types.ts";
-import {sampleDirectories} from "@/assets/samples";
+import {SampleDirectory} from "./samplesTypes.ts";
 import {CadencePlayer} from "@/components/player.tsx";
 import {useEffect, useState} from "react";
+import {sampleDirectories} from "@/assets-list.ts";
 
 const baseValue = `
-import {Loop, Cadence} from "cadence-js";
+import type {Loop} from "cadence-js";
+import {Cadence} from "cadence-js";
 import {E2} from "guitar-nylon";
 
 const cadence = new Cadence();

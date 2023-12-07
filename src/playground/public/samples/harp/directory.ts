@@ -1,4 +1,4 @@
-import { SampleDirectory } from '../types'
+import { SampleDirectory } from '@/samplesTypes.ts'
 import A2 from "./A2.mp3"
 import A4 from "./A4.mp3"
 import A6 from "./A6.mp3"

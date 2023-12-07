@@ -1,7 +1,7 @@
 import {FC, useEffect, useState} from "react";
 import initSwc, {transformSync} from "@swc/wasm-web";
-import {sampleDirectories} from "@/assets/samples";
-import {SampleDirectory} from "@/assets/samples/types.ts";
+import {SampleDirectory} from "../samplesTypes.ts";
+import {sampleDirectories} from "@/assets-list.ts";
 
 const importRegex = /import\s{(?<importName>[\w\d,\s]+)}\sfrom\s["'](?<importPath>[\w-]+)["'];?/gm;
 
@@ -64,29 +64,13 @@ function transformImports(code: string, samples: SampleDirectory[]): {code : str
         newCode = newCode.replace(importStatement.originalImport, '')
 
         if (samplePath) {
-            newCode = newCode.replace(new RegExp(`${importStatement.name}`, 'g'), `"${samplePath.replace('/src', '@')}"`)
+            newCode = newCode.replace(new RegExp(`${importStatement.name}`, 'g'), `"${samplePath}"`)
         }
     })
     return {
         code: newCode,
         cadenceImports
     }
-}
-
-const generateCadenceScript = (userCode: string): string => {
-    return `data:text/html;charset=utf-8,
-        <html>
-        <head>
-            <script type="module">
-                console.log("hello")
-                ${userCode}
-            </script>
-        </head>
-        <body>
-        <img src="vite.svg" />
-        </body>
-        </html>
-    `
 }
 
 export const CadencePlayer: FC<{
@@ -111,7 +95,7 @@ export const CadencePlayer: FC<{
                 target: "es2020"
             }
         });
-        return `import {${assetsImports.cadenceImports}} from "cadence/index.js";\n${result.code}`
+        return `import {${assetsImports.cadenceImports}} from "./cadence.js";\n${result.code}`
     }
 
     useEffect(() => {
@@ -119,7 +103,18 @@ export const CadencePlayer: FC<{
         if (!result || !mustPlay) {
             return;
         }
-        setIframe(generateCadenceScript(result))
+        setIframe(result)
+        const script = document.createElement('script');
+
+        script.type = 'module';
+        script.innerHTML = result;
+        script.async = true;
+
+        document.body.appendChild(script);
+
+        return () => {
+            document.body.removeChild(script);
+        }
     }, [mustPlay]);
 
     useEffect(() => {
@@ -144,6 +139,9 @@ export const CadencePlayer: FC<{
 
 
     return (
-        <iframe src={iframe}/>
+        <script type="module">
+            console.log("hello")
+            {iframe}
+        </script>
     )
 }

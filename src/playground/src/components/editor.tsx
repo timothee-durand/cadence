@@ -1,5 +1,5 @@
 import {forwardRef, useEffect, useImperativeHandle, useRef, useState} from "react";
-import {CadencePlayer, CadencePlayerRef} from "@/components/player.tsx";
+import {CadencePlayer, CadencePlayerRef} from "@/components/player/player.tsx";
 import {SampleDirectory} from "@/samplesTypes.ts";
 import {Editor, Monaco} from "@monaco-editor/react";
 import {sampleDirectories} from "@/assets-list.ts";

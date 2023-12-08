@@ -65,8 +65,8 @@ jobs:
       - name: Put all in a folder
         run: |
           mkdir ./pages
+          cp -r ${{ env.DOCS_BASE_PATH }}/content/.vitepress/dist/* ./pages/
           cp -r ${{ env.BASE_PATH }}/dist ./pages/playground
-          cp -r ${{ env.DOCS_BASE_PATH }}/content/.vitepress/dist ./pages/
           ls -la ./pages
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1

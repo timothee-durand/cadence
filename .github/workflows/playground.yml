@@ -45,9 +45,9 @@ jobs:
           cache: 'pnpm'
       - name: Build cadence for playground
         working-directory: ${{ env.CADENCE_BASE_PATH }}
-        run:
-          - pnpm i
-          - pnpm run generate:playground
+        run: |
+          pnpm i
+          pnpm run generate:playground
       - name: Install playground
         working-directory: ${{ env.BASE_PATH }}
         run: pnpm i

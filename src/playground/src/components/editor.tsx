@@ -1,12 +1,12 @@
-import {FC, useEffect, useState} from "react";
+import {forwardRef, useEffect, useImperativeHandle, useState} from "react";
 import {CadencePlayer} from "@/components/player.tsx";
 import {SampleDirectory} from "@/samplesTypes.ts";
 import {Editor, Monaco} from "@monaco-editor/react";
 import {sampleDirectories} from "@/assets-list.ts";
+import {AddSamplePayload} from "@/components/samplesList/types.ts";
 
 
-const baseValue = `
-import type {Loop} from "cadence-js";
+const baseValue = `import type {Loop} from "cadence-js";
 import {Cadence} from "cadence-js";
 import {E2} from "guitar-nylon";
 
@@ -56,25 +56,41 @@ async function createEditor(monaco: Monaco) {
         noLib: true
     });
 }
+type CadenceEditorProps = { mustPlay: boolean };
 
 
-export const CadenceEditor: FC<{mustPlay:boolean}> = ({mustPlay}) => {
+export type CadenceEditorComponentType = {
+    addSampleImport: (payload: AddSamplePayload) => void
+}
+
+
+export const CadenceEditor = forwardRef<CadenceEditorComponentType, CadenceEditorProps>(({mustPlay}, ref) => {
     const [code, setCode] = useState<string>('')
 
     useEffect(() => {
         setCode(baseValue)
     }, []);
 
+    useImperativeHandle(ref, () => ({
+        addSampleImport({sampleName, directoryName}) {
+            setCode('import { ' + sampleName + ' } from "' + directoryName + '";\n' + code);
+        }
+    }));
+
 
     return (
-        <div className={"min-h-screen"}>
+        <div >
             <Editor
-                width="500px"
-                height="500px"
                 theme="vs-dark"
+                height="80vh"
                 defaultLanguage="typescript"
                 beforeMount={createEditor}
-                defaultValue={code}
+                value={code}
+                options={{
+                    minimap: {
+                        enabled: false
+                    }
+                }}
                 onChange={(value) => {
                     setCode(value ?? '')
                 }
@@ -83,4 +99,4 @@ export const CadenceEditor: FC<{mustPlay:boolean}> = ({mustPlay}) => {
             <CadencePlayer cadenceCode={code} mustPlay={mustPlay}/>
         </div>
     )
-}
+})

@@ -1,5 +1,5 @@
-import {forwardRef, useEffect, useImperativeHandle, useState} from "react";
-import {CadencePlayer} from "@/components/player.tsx";
+import {forwardRef, useEffect, useImperativeHandle, useRef, useState} from "react";
+import {CadencePlayer, CadencePlayerRef} from "@/components/player.tsx";
 import {SampleDirectory} from "@/samplesTypes.ts";
 import {Editor, Monaco} from "@monaco-editor/react";
 import {sampleDirectories} from "@/assets-list.ts";
@@ -53,20 +53,21 @@ async function createEditor(monaco: Monaco) {
     monaco.languages.typescript.typescriptDefaults.addExtraLib(samplesDeclaration, "samples");
     monaco.languages.typescript.typescriptDefaults.setCompilerOptions({
         allowNonTsExtensions: true,
-        noLib: true
+        noLib: true,
+        importsNotUsedAsValues: "remove",
     });
 }
-type CadenceEditorProps = { mustPlay: boolean };
+type CadenceEditorProps = {};
 
 
 export type CadenceEditorComponentType = {
     addSampleImport: (payload: AddSamplePayload) => void
-}
+} & CadencePlayerRef
 
 
-export const CadenceEditor = forwardRef<CadenceEditorComponentType, CadenceEditorProps>(({mustPlay}, ref) => {
+export const CadenceEditor = forwardRef<CadenceEditorComponentType, CadenceEditorProps>((_, ref) => {
     const [code, setCode] = useState<string>('')
-
+    const cadencePlayerRef = useRef<CadencePlayerRef>(null);
     useEffect(() => {
         setCode(baseValue)
     }, []);
@@ -74,6 +75,15 @@ export const CadenceEditor = forwardRef<CadenceEditorComponentType, CadenceEdito
     useImperativeHandle(ref, () => ({
         addSampleImport({sampleName, directoryName}) {
             setCode('import { ' + sampleName + ' } from "' + directoryName + '";\n' + code);
+        },
+        play() {
+            cadencePlayerRef.current?.play();
+        },
+        add() {
+            cadencePlayerRef.current?.add();
+        },
+        stop() {
+            cadencePlayerRef.current?.stop();
         }
     }));
 
@@ -96,7 +106,7 @@ export const CadenceEditor = forwardRef<CadenceEditorComponentType, CadenceEdito
                 }
                 }
             />;
-            <CadencePlayer cadenceCode={code} mustPlay={mustPlay}/>
+            <CadencePlayer ref={cadencePlayerRef} cadenceCode={code}/>
         </div>
     )
 })

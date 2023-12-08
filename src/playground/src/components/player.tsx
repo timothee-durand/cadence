@@ -1,4 +1,4 @@
-import {FC, useEffect, useState} from "react";
+import {forwardRef, useEffect, useImperativeHandle, useState} from "react";
 import initSwc, {transformSync} from "@swc/wasm-web";
 import {SampleDirectory} from "../samplesTypes.ts";
 import {sampleDirectories} from "@/assets-list.ts";
@@ -46,26 +46,33 @@ function getSamplePath({name, directory, samples}: {
 
 }
 
-function transformImports(code: string, samples: SampleDirectory[]): {code : string, cadenceImports: string} {
+function transformImports(code: string, samples: SampleDirectory[]): { code: string, cadenceImports: string } {
     let newCode = code;
     let imports = getImports(code);
     console.log(samples)
     console.log(imports)
     let cadenceImports = '';
     imports.forEach((importStatement) => {
-        if(importStatement.path === 'cadence-js') {
+        if (importStatement.path === 'cadence-js') {
             cadenceImports = importStatement.name
         }
-        const samplePath = getSamplePath({
-            name: importStatement.name,
-            directory: importStatement.path,
-            samples
-        })
-        newCode = newCode.replace(importStatement.originalImport, '')
+        const imports = importStatement.name.split(',').map((name) => name.trim())
+        console.log(imports)
+        imports.forEach((name) => {
+            console.log(name)
+            const samplePath = getSamplePath({
+                name: name,
+                directory: importStatement.path,
+                samples
+            })
+            newCode = newCode.replace(importStatement.originalImport, '')
+            console.log(samplePath)
 
-        if (samplePath) {
-            newCode = newCode.replace(new RegExp(`${importStatement.name}`, 'g'), `"${samplePath}"`)
-        }
+            if (samplePath) {
+                newCode = newCode.replace(new RegExp(`${name}`, 'g'), `"${samplePath}"`)
+            }
+        })
+
     })
     return {
         code: newCode,
@@ -73,19 +80,81 @@ function transformImports(code: string, samples: SampleDirectory[]): {code : str
     }
 }
 
-export const CadencePlayer: FC<{
-    cadenceCode: string,
-    mustPlay: boolean
-}> = ({cadenceCode, mustPlay}) => {
-    const [iframe, setIframe] = useState<string>('')
+
+type CadencePlayerProps = {
+    cadenceCode: string
+}
+
+export type CadencePlayerRef = {
+    play(): void,
+    add(): void,
+    stop(): void
+}
+
+type Script = { element: HTMLScriptElement, globalVariableName: string };
+export const CadencePlayer = forwardRef<CadencePlayerRef, CadencePlayerProps>(({cadenceCode}, ref) => {
     const [initialized, setInitialized] = useState(false);
+    const [scripts, setScripts] = useState<Script[]>([]);
+
+
+    function getScript(code: string): Script {
+        const script = document.createElement('script');
+
+        const variableName = `cadence${Math.random().toString(36).substring(7)}`;
+        script.type = 'module';
+        script.innerHTML = code + `\nwindow.${variableName} = cadence;`;
+        script.async = true;
+        return {
+            element: script,
+            globalVariableName: variableName
+        }
+    }
+
+    useImperativeHandle(ref, () => ({
+        play() {
+            stopAll();
+            const result = compile();
+            if (!result) {
+                throw new Error('Could not compile')
+            }
+            const script = getScript(result);
+            document.body.appendChild(script.element);
+            setScripts([script])
+        },
+        add() {
+            const result = compile();
+            if (!result) {
+                throw new Error('Could not compile')
+            }
+            const script = getScript(result);
+            document.body.appendChild(script.element);
+            setScripts([...scripts, script])
+        },
+        stop() {
+            stopAll();
+        }
+    }));
+
+    function stopAll() {
+        scripts.forEach((script) => {
+            document.body.removeChild(script.element);
+            // @ts-ignore
+            const global = window[script.globalVariableName]
+            if(global && global.stop) {
+                // @ts-ignore
+                global.stop();
+                // @ts-ignore
+                window[script.globalVariableName] = undefined;
+            }
+        })
+        setScripts([])
+    }
 
     function compile() {
         if (!initialized) {
             return;
         }
         const assetsImports = transformImports(cadenceCode, sampleDirectories);
-        console.log(assetsImports)
         const result = transformSync(assetsImports.code, {
             jsc: {
                 parser: {
@@ -97,25 +166,6 @@ export const CadencePlayer: FC<{
         });
         return `import {${assetsImports.cadenceImports}} from "./cadence.js";\n${result.code}`
     }
-
-    useEffect(() => {
-        const result = compile();
-        if (!result || !mustPlay) {
-            return;
-        }
-        setIframe(result)
-        const script = document.createElement('script');
-
-        script.type = 'module';
-        script.innerHTML = result;
-        script.async = true;
-
-        document.body.appendChild(script);
-
-        return () => {
-            document.body.removeChild(script);
-        }
-    }, [mustPlay]);
 
     useEffect(() => {
         async function importAndRunSwcOnMount() {
@@ -130,18 +180,12 @@ export const CadencePlayer: FC<{
 
         importAndRunSwcOnMount();
         console.log(sampleDirectories)
+
+        return () => {
+            stopAll();
+        }
     }, []);
 
 
-    if (cadenceCode.length === 0 || !mustPlay) {
-        return <div/>
-    }
-
-
-    return (
-        <script type="module">
-            console.log("hello")
-            {iframe}
-        </script>
-    )
-}
+    return <div/>
+})

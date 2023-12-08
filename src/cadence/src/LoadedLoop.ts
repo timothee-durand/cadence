@@ -49,9 +49,4 @@ export class LoadedLoop {
 	}
 }
 
-	stop(): void {
-		this.source?.stop()
-	}
-
-}
 

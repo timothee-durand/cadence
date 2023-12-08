@@ -45,5 +45,4 @@ export class LoadedLoop {
 	get samplePath(): string {
 		return this.sample
 	}
-
 }

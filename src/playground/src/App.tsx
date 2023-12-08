@@ -9,7 +9,8 @@ const loop: Loop = {
   startTime: "6s",
   sample: A3Piano,
   interval: "1s",
-  speed: 1
+  speed: 1,
+  endTime: "10s"
 }
 
 function App() {

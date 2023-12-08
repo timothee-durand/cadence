@@ -37,7 +37,7 @@ export class LoadedLoop {
 
 	private get endTimeS(): number {
 		const endTime = convertStringToS(this.endTime)
-		return endTime;
+		return endTime
 	}
 
 	private get startTimeS(): number {

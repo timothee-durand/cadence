@@ -8,7 +8,7 @@ export const SampleItem: FC<{ sample: SamplesTypes, onClick: () => void }> = ({s
     const [audio, setAudio] = useState<HTMLAudioElement | null>(null);
 
     function playSample() {
-        const audio = new Audio(sample.path);
+        const audio = new Audio("." + sample.path);
         audio.play();
         setAudio(audio);
         setIsPlaying(true);
@@ -32,7 +32,6 @@ export const SampleItem: FC<{ sample: SamplesTypes, onClick: () => void }> = ({s
                     {isPlaying ? <StopCircle/> : <Play/>}
                 </Button>
             </div>
-
         </div>
 
     )

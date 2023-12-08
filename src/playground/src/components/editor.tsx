@@ -91,8 +91,9 @@ export const CadenceEditor = forwardRef<CadenceEditorComponentType, CadenceEdito
     return (
         <div >
             <Editor
+                className="rounded-md"
                 theme="vs-dark"
-                height="80vh"
+                height="60vh"
                 defaultLanguage="typescript"
                 beforeMount={createEditor}
                 value={code}
@@ -105,7 +106,7 @@ export const CadenceEditor = forwardRef<CadenceEditorComponentType, CadenceEdito
                     setCode(value ?? '')
                 }
                 }
-            />;
+            />
             <CadencePlayer ref={cadencePlayerRef} cadenceCode={code}/>
         </div>
     )

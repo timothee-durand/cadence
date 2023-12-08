@@ -65,7 +65,7 @@ export function transformImports(code: string, samples: SampleDirectory[]): { co
             console.log(samplePath)
 
             if (samplePath) {
-                newCode = newCode.replace(new RegExp(`${name}`, 'g'), `"${samplePath}"`)
+                newCode = newCode.replace(new RegExp(`${name}`, 'g'), `".${samplePath}"`)
             }
         })
 

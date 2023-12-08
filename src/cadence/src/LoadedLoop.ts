@@ -1,5 +1,5 @@
 import { Loop, Time} from './types'
-import {convertTimeToMs, convertStringToS} from './utils/convertTimeToMs'
+import {convertStringToS} from './utils/convertTimeToMs'
 
 export class LoadedLoop {
 	sample: string
@@ -31,6 +31,7 @@ export class LoadedLoop {
 		gainNode.connect(audioContext.destination)
 		source.start(audioContext.currentTime + this.startTimeS)
 		source.stop(audioContext.currentTime + this.endTimeS)
+		this.source = source
 
 	}
 
@@ -47,6 +48,9 @@ export class LoadedLoop {
 	get samplePath(): string {
 		return this.sample
 	}
-}
 
+	public stop(): void {
+		this.source?.stop()
+	}
+}
 

@@ -5,12 +5,10 @@ import {AssetsList} from "@/components/samplesList/assetsList.tsx";
 import {sampleDirectories} from "@/assets-list.ts";
 import {Separator} from "@/components/ui/separator.tsx";
 
-
 function App() {
     const editorRef = useRef<CadenceEditorComponentType>(null)
     return (
         <div className="bg-background min-h-screen text-foreground">
-
             <header className="py-3 px-5">
                 <div className="max-w-5xl mx-auto flex justify-between items-center">
                     <h1 className=" text-2xl font-bold tracking-tight">

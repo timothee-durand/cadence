@@ -10,11 +10,12 @@ export function convertTimeToMs(time: Time) : number {
 	if(time.endsWith('m')) {
 		return parseInt(time.slice(0, -1)) * 1000 * 60
 	}
-	 new Error('Invalid time format')
+	throw new Error('Invalid time format')
 }
 
 export function convertStringToS(time: Time) : number {
 	if(time.endsWith('s')) {
 		return parseInt(time.slice(0, -1))
 	}
+	throw new Error('Invalid time format')
 }

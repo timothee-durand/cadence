@@ -14,14 +14,9 @@ export class Cadence implements AbstractCadence {
 	public play(loop: Loop): void;
 	public play(): void;
 	public async play(song?: Song | Loop): Promise<void> {
-		const getIndexStartTime = song.startTime.indexOf("s");
-		const getIndexEndTime   = song.endTime.indexOf("s");
+
 
 		if (song) {
-			if (getIndexStartTime === -1 || getIndexEndTime === -1) {
-				throw new Error("Only seconds are allowed please insert s.");
-			}
-
 			if (Array.isArray(song)) {
 				this.song = song
 			} else {

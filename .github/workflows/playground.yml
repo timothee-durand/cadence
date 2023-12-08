@@ -63,18 +63,23 @@ jobs:
         run: |
           pnpm docs:build # or pnpm docs:build / yarn docs:build / bun run docs:build
           touch content/.vitepress/dist/.nojekyll
-      - name: Put all in a folder
-        run: |
-          mkdir pages
-          cp -r ${{ env.DOCS_BASE_PATH }}/content/.vitepress/dist ./pages/
-          cp -r ${{ env.BASE_PATH }}/dist ./pages/playground
       - name: Setup Pages
         uses: actions/configure-pages@v3
+      - name: Put all in a folder
+        run: |
+          mkdir ./pages
+          cp -r ${{ env.DOCS_BASE_PATH }}/content/.vitepress/dist ./pages/
+          cp -r ${{ env.BASE_PATH }}/dist ./pages/playground
+          ls -la ./pages
+      - name: debug
+        run: |
+          ls -la ./pages
+          ls -la ./pages/playground
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
           # Upload dist repository
-          path: '/pages'
+          path: './pages'
 
   # Deployment job
   deploy-docs:

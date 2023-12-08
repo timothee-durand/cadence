@@ -8,6 +8,7 @@ export class LoadedLoop {
 	private endTime: Time = '0s'
 	private volume = 1
 	private buffer: AudioBuffer
+	private source: AudioBufferSourceNode | undefined
 
 	constructor(buffer: AudioBuffer, loop: Loop) {
 		this.buffer = buffer
@@ -30,6 +31,7 @@ export class LoadedLoop {
 		gainNode.connect(audioContext.destination)
 		source.start(audioContext.currentTime + this.startTimeS)
 		source.stop(audioContext.currentTime + this.endTimeS)
+
 	}
 
 	private get endTimeS(): number {
@@ -46,3 +48,10 @@ export class LoadedLoop {
 		return this.sample
 	}
 }
+
+	stop(): void {
+		this.source?.stop()
+	}
+
+}
+

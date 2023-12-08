@@ -35,7 +35,8 @@ export class Cadence implements AbstractCadence {
 	}
 
 	public stop(): void {
-		throw new Error('Method not implemented.')
+		const loops = this.loader.getLoops()
+		loops.forEach(loop => loop.stop())
 	}
 
 

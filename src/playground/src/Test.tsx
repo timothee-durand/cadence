@@ -1,6 +1,6 @@
 import {ReactNode} from "react";
 import {Cadence, Loop} from "cadence-js";
-import A3Piano from "./assets/samples/piano/A3.mp3"
+import A3Piano from "../public/samples/piano/A3.mp3"
 
 const loop: Loop = {
     sample: A3Piano,

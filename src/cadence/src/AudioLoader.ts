@@ -4,9 +4,15 @@ import {LoadedLoop} from './LoadedLoop'
 export class AudioLoader {
 	private loadedLoop: LoadedLoop[] = []
 
-
-
 	public async loadSong(song: Song): Promise<void> {
+		song.forEach(loop => {
+			const getIndexStartTime = loop?.startTime?.indexOf('s')
+			const getIndexEndTime   = loop?.endTime?.indexOf('s')
+
+			if(getIndexStartTime === -1 || getIndexEndTime === -1) {
+				throw new Error('Only seconds are allowed please insert s.')
+			}
+		})
 		const promises = song.map(loop => this.loadLoop(loop))
 		await Promise.all(promises)
 	}

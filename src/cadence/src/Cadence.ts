@@ -1,8 +1,6 @@
 import {AbstractCadence, Loop, Song} from './types'
 import {AudioLoader} from './AudioLoader'
 
-
-
 export class Cadence implements AbstractCadence {
 	private song: Song = []
 	private loader = new AudioLoader()
@@ -16,6 +14,8 @@ export class Cadence implements AbstractCadence {
 	public play(loop: Loop): void;
 	public play(): void;
 	public async play(song?: Song | Loop): Promise<void> {
+
+
 		if (song) {
 			if (Array.isArray(song)) {
 				this.song = song
@@ -23,8 +23,8 @@ export class Cadence implements AbstractCadence {
 				this.song.push(song)
 			}
 		}
+
 		await this.loader.loadSong(this.song)
-		console.log(this.loader)
 		const loops = this.loader.getLoops()
 		loops.forEach(loop => loop.loop())
 	}

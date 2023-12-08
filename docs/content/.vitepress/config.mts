@@ -4,6 +4,7 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: "CadenceJs",
   description: "Cadence is a music js library",
+  base: "/cadence/",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [

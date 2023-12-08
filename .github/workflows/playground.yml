@@ -65,8 +65,9 @@ jobs:
           touch content/.vitepress/dist/.nojekyll
       - name: Put all in a folder
         run: |
-          cp -r ${{ env.DOCS_BASE_PATH }}/content/.vitepress/dist pages/
-          cp -r ${{ env.BASE_PATH }}/dist pages/playground
+          mkdir pages
+          cp -r ${{ env.DOCS_BASE_PATH }}/content/.vitepress/dist ./pages/
+          cp -r ${{ env.BASE_PATH }}/dist ./pages/playground
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Upload artifact

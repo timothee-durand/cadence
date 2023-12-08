@@ -8,7 +8,6 @@ const loop: Loop = {
     speed: 1
 }
 
-
 export function Test(): ReactNode {
     const cadence = new Cadence();
 

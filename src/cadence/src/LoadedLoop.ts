@@ -1,10 +1,10 @@
 import { Loop, Time} from './types'
-import {convertTimeToMs} from './utils/convertTimeToMs'
+import {convertTimeToMs, convertStringToS} from './utils/convertTimeToMs'
 
 export class LoadedLoop {
 	sample: string
 	private speed = 1
-	private startTime: Time = '0ms'
+	private startTime: Time = '0s'
 	private volume = 1
 	private buffer: AudioBuffer
 
@@ -26,11 +26,11 @@ export class LoadedLoop {
 		gainNode.gain.value = this.volume
 		source.connect(gainNode)
 		gainNode.connect(audioContext.destination)
-		source.start(audioContext.currentTime, this.startTimeMs)
+		source.start(audioContext.currentTime + this.startTimeS)
 	}
 
-	private get startTimeMs(): number {
-		const startTime = convertTimeToMs(this.startTime)
+	private get startTimeS(): number {
+		const startTime = convertStringToS(this.startTime)
 		return startTime
 	}
 

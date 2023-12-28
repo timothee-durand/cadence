@@ -1,20 +1,19 @@
-
-export function convertTimeToMs(time: string) : number {
-	if(time.endsWith('ms')) {
-		return parseInt(time.slice(0, -2))
-	}
-	if(time.endsWith('s')) {
-		return parseInt(time.slice(0, -1)) * 1000
-	}
-	if(time.endsWith('m')) {
-		return parseInt(time.slice(0, -1)) * 1000 * 60
-	}
-	throw new Error('Invalid time format')
+export function convertTimeToMs(time: string): number {
+  if (time.endsWith('ms')) {
+    return parseInt(time.slice(0, -2))
+  }
+  if (time.endsWith('s')) {
+    return parseInt(time.slice(0, -1)) * 1000
+  }
+  if (time.endsWith('m')) {
+    return parseInt(time.slice(0, -1)) * 1000 * 60
+  }
+  throw new Error('Invalid time format')
 }
 
-export function convertStringToS(time: string) : number {
-	if(time.endsWith('s')) {
-		return parseInt(time.slice(0, -1))
-	}
-	throw new Error('Invalid time format')
+export function convertStringToS(time: string): number {
+  if (time.endsWith('s')) {
+    return parseInt(time.slice(0, -1))
+  }
+  throw new Error('Invalid time format')
 }

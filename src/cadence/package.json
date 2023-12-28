@@ -9,7 +9,7 @@
     "coverage": "vitest run --coverage",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
-    "generate:playground": "rm -f ../playground/public/cadence.js ../playground/public/cadence.d.ts  && tsc --project tsconfig.playground-declaration.json && spack"
+    "generate:playground": "tsc --project tsconfig.playground-declaration.json && spack"
   },
   "keywords": [],
   "author": "",

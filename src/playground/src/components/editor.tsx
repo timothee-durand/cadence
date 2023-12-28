@@ -12,9 +12,11 @@ import {E2} from "guitar-nylon";
 
 const cadence = new Cadence();
 const loop: Loop = {
+    startTime: "0s",
     interval: "1s",
     speed: 1,
-    sample: E2
+    sample: E2,
+    endTime: "30s"
 }
 cadence.play(loop)
 `

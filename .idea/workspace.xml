@@ -4,159 +4,162 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="845726e5-9aba-4c5f-ac03-0b080f3f22bb" name="Changes" comment="">
-<<<<<<< HEAD
+    <list default="true" id="b7e0a846-194a-4a6d-afe5-9d21b706db32" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/cadence/src/AudioLoader.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cadence/src/LoadedLoop.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cadence/test/utils.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/iim-pfe-23-24.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/iim-pfe-23-24.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cadence/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/cadence/README.md" afterDir="false" />
-=======
-      <change afterPath="$PROJECT_DIR$/src/playground/src/addMonacco.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/playground/src/components/ui/codeeditor/CodeEditor.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/playground/src/components/ui/codeeditor/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/playground/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/playground/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/playground/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/playground/src/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/playground/src/assets/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/playground/src/assets/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/playground/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/playground/src/main.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/playground/src/views/HomeView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/playground/src/views/HomeView.vue" afterDir="false" />
->>>>>>> parent of 9105f81 (Add directory generation script (#14))
+      <change beforePath="$PROJECT_DIR$/src/cadence/src/AudioLoader.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/cadence/src/AudioLoader.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cadence/src/LoadedLoop.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/cadence/src/LoadedLoop.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cadence/src/utils/convertTimeToMs.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/cadence/src/utils/convertTimeToMs.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Vue Composition API Component" />
-        <option value="TypeScript File" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="MacroExpansionManager">
-    <option name="directoryName" value="8lbwgedp" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 6
-}</component>
-  <component name="ProjectId" id="2XLGlMGirqx4BRCexSzFee8QSiq" />
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 8
+}]]></component>
+  <component name="ProjectId" id="2aAkXEhz88JcggZ2PuXT67YnLu9" />
   <component name="ProjectViewState">
     <option name="autoscrollFromSource" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-<<<<<<< HEAD
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;chore/add-eslint-cadence&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/timothee/CODE/COURS/iim-pfe-23-24/src/cadence/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
-=======
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "feat/add-shadcn",
+    "Vitest.AudioLoader.executor": "Run",
+    "Vitest.AudioLoader.should not load a loop if it is already loaded.executor": "Run",
+    "Vitest.LoadedLoop.executor": "Run",
+    "Vitest.LoadedLoop.should start the loop at the correct time.executor": "Run",
+    "Vitest.LoadedLoop.should stop the loop at the correct time.executor": "Run",
+    "Vitest.decodeAudioData.executor": "Run",
+    "git-widget-placeholder": "chore/test-cadence",
     "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.standard": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.standard": "",
     "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "ts.external.directory.path": "/Users/timothee/CODE/COURS/iim-pfe-23-24/src/cadence/node_modules/typescript/lib",
+    "nodejs_package_manager_path": "pnpm",
+    "npm.playground > dev.executor": "Run",
+    "settings.editor.selected.configurable": "settings.javascript.linters.eslint",
+    "ts.external.directory.path": "/Users/timothee/CODE/COURS/iim-pfe-23-24/src/playground/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
->>>>>>> parent of 9105f81 (Add directory generation script (#14))
-  },
-  &quot;keyToStringList&quot;: {
-    &quot;vue.recent.templates&quot;: [
-      &quot;Vue Composition API Component&quot;
-    ]
   }
-}</component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/cadence/src/utils" />
-      <recent name="$PROJECT_DIR$/src/cadence" />
-      <recent name="$PROJECT_DIR$/examples" />
-    </key>
-  </component>
-  <component name="RunManager" selected="npm.lint:fix">
-    <configuration name="lint" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/src/cadence/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="lint" />
-      </scripts>
+}]]></component>
+  <component name="RunManager" selected="Vitest.LoadedLoop.should stop the loop at the correct time">
+    <configuration name="AudioLoader" type="JavaScriptTestRunnerVitest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
+      <vitest-package value="$PROJECT_DIR$/src/cadence/node_modules/vitest" />
+      <working-dir value="$PROJECT_DIR$/src/cadence" />
+      <vitest-options value="--run" />
       <envs />
+      <scope-kind value="SUITE" />
+      <test-file value="$PROJECT_DIR$/src/cadence/src/AudioLoader.spec.ts" />
+      <test-names>
+        <test-name value="AudioLoader" />
+      </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="lint:fix" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/src/cadence/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="lint:fix" />
-      </scripts>
+    <configuration name="AudioLoader.should not load a loop if it is already loaded" type="JavaScriptTestRunnerVitest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
+      <vitest-package value="$PROJECT_DIR$/src/cadence/node_modules/vitest" />
+      <working-dir value="$PROJECT_DIR$/src/cadence" />
+      <vitest-options value="--run" />
       <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/cadence/src/AudioLoader.spec.ts" />
+      <test-names>
+        <test-name value="AudioLoader" />
+        <test-name value="should not load a loop if it is already loaded" />
+      </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="playground" type="js.build_tools.npm" temporary="true">
-      <package-json value="$PROJECT_DIR$/src/playground/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="dev" />
-      </scripts>
+    <configuration name="LoadedLoop" type="JavaScriptTestRunnerVitest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
+      <vitest-package value="$PROJECT_DIR$/src/cadence/node_modules/vitest" />
+      <working-dir value="$PROJECT_DIR$/src/cadence" />
+      <vitest-options value="--run" />
       <envs />
+      <scope-kind value="SUITE" />
+      <test-file value="$PROJECT_DIR$/src/cadence/src/LoadedLoop.spec.ts" />
+      <test-names>
+        <test-name value="LoadedLoop" />
+      </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="test" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/src/cadence/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="test" />
-      </scripts>
+    <configuration name="LoadedLoop.should start the loop at the correct time" type="JavaScriptTestRunnerVitest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
+      <vitest-package value="$PROJECT_DIR$/src/cadence/node_modules/vitest" />
+      <working-dir value="$PROJECT_DIR$/src/cadence" />
+      <vitest-options value="--run" />
       <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/cadence/src/LoadedLoop.spec.ts" />
+      <test-names>
+        <test-name value="LoadedLoop" />
+        <test-name value="should start the loop at the correct time" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="LoadedLoop.should stop the loop at the correct time" type="JavaScriptTestRunnerVitest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <vitest-package value="$PROJECT_DIR$/src/cadence/node_modules/vitest" />
+      <working-dir value="$PROJECT_DIR$/src/cadence" />
+      <vitest-options value="--run" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/cadence/src/LoadedLoop.spec.ts" />
+      <test-names>
+        <test-name value="LoadedLoop" />
+        <test-name value="should stop the loop at the correct time" />
+      </test-names>
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.lint:fix" />
-        <item itemvalue="npm.lint" />
-        <item itemvalue="npm.test" />
-        <item itemvalue="npm.playground" />
+        <item itemvalue="Vitest.LoadedLoop.should stop the loop at the correct time" />
+        <item itemvalue="Vitest.LoadedLoop.should start the loop at the correct time" />
+        <item itemvalue="Vitest.LoadedLoop" />
+        <item itemvalue="Vitest.AudioLoader.should not load a loop if it is already loaded" />
+        <item itemvalue="Vitest.AudioLoader" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-1d06a55b98c1-c44b541a36ca-JavaScript-WS-233.13135.92" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="845726e5-9aba-4c5f-ac03-0b080f3f22bb" name="Changes" comment="" />
-      <created>1698401097752</created>
+      <changelist id="b7e0a846-194a-4a6d-afe5-9d21b706db32" name="Changes" comment="" />
+      <created>1703768810527</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1698401097752</updated>
-      <workItem from="1698401100736" duration="22000" />
-      <workItem from="1698401129124" duration="8190000" />
-      <workItem from="1698416739131" duration="64000" />
-      <workItem from="1700208688030" duration="2455000" />
+      <updated>1703768810527</updated>
+      <workItem from="1703768812798" duration="4441000" />
     </task>
     <servers />
   </component>

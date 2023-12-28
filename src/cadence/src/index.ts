@@ -1,3 +1,2 @@
 export * from './types'
-export {Cadence} from './Cadence'
-
+export { Cadence } from './Cadence'

@@ -11,7 +11,7 @@
     "lint:fix": "eslint src --fix",
     "generate:playground": "rm -f ../playground/public/cadence.js ../playground/public/cadence.d.ts  && tsc --project tsconfig.playground-declaration.json && spack"
   },
-  "keywords": [],
+  "keywords": ["music", "typescript", "sample"],
   "author": "",
   "license": "MIT",
   "devDependencies": {

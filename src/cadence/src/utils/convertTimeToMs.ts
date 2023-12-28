@@ -1,6 +1,5 @@
-import {Time} from '../types'
 
-export function convertTimeToMs(time: Time) : number {
+export function convertTimeToMs(time: string) : number {
 	if(time.endsWith('ms')) {
 		return parseInt(time.slice(0, -2))
 	}
@@ -13,7 +12,7 @@ export function convertTimeToMs(time: Time) : number {
 	throw new Error('Invalid time format')
 }
 
-export function convertStringToS(time: Time) : number {
+export function convertStringToS(time: string) : number {
 	if(time.endsWith('s')) {
 		return parseInt(time.slice(0, -1))
 	}

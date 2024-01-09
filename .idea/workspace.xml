@@ -5,15 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b7e0a846-194a-4a6d-afe5-9d21b706db32" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/cadence/src/AudioLoader.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cadence/src/LoadedLoop.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cadence/test/utils.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/iim-pfe-23-24.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/iim-pfe-23-24.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cadence/src/AudioLoader.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/cadence/src/AudioLoader.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cadence/src/LoadedLoop.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/cadence/src/LoadedLoop.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cadence/src/utils/convertTimeToMs.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/cadence/src/utils/convertTimeToMs.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CONTRIBUTING.md" beforeDir="false" afterPath="$PROJECT_DIR$/CONTRIBUTING.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/playground/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/playground/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,10 +24,10 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 8
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 8
+}</component>
   <component name="ProjectId" id="2aAkXEhz88JcggZ2PuXT67YnLu9" />
   <component name="ProjectViewState">
     <option name="autoscrollFromSource" value="true" />
@@ -51,7 +44,7 @@
     "Vitest.LoadedLoop.should start the loop at the correct time.executor": "Run",
     "Vitest.LoadedLoop.should stop the loop at the correct time.executor": "Run",
     "Vitest.decodeAudioData.executor": "Run",
-    "git-widget-placeholder": "chore/test-cadence",
+    "git-widget-placeholder": "chore/add-contributing-informations",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
     "node.js.detected.package.tslint": "true",

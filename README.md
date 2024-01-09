@@ -1,7 +1,3 @@
-Certainly! Below is an improved README.md file for your Cadence.js project, including a more detailed contribution section:
-
----
-
 # Cadence.js
 
 **What is Cadence.js?**

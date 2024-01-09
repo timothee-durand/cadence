@@ -5,8 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b7e0a846-194a-4a6d-afe5-9d21b706db32" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/CONTRIBUTING.md" beforeDir="false" afterPath="$PROJECT_DIR$/CONTRIBUTING.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/playground/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/playground/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/content/api-documentation/effects.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/content/api-documentation/index.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/content/api-documentation/loop.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/content/.vitepress/config.mts" beforeDir="false" afterPath="$PROJECT_DIR$/docs/content/.vitepress/config.mts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/content/api-documentation.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/content/contribute.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/content/contribute.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/content/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/content/index.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,7 +22,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="chore/add-contributing-informations" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -44,7 +50,7 @@
     "Vitest.LoadedLoop.should start the loop at the correct time.executor": "Run",
     "Vitest.LoadedLoop.should stop the loop at the correct time.executor": "Run",
     "Vitest.decodeAudioData.executor": "Run",
-    "git-widget-placeholder": "chore/add-contributing-informations",
+    "git-widget-placeholder": "main",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
     "node.js.detected.package.tslint": "true",
@@ -52,40 +58,20 @@
     "node.js.selected.package.standard": "",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "pnpm",
+    "npm.docs > docs:dev.executor": "Run",
     "npm.playground > dev.executor": "Run",
     "settings.editor.selected.configurable": "settings.javascript.linters.eslint",
     "ts.external.directory.path": "/Users/timothee/CODE/COURS/iim-pfe-23-24/src/playground/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="Vitest.LoadedLoop.should stop the loop at the correct time">
-    <configuration name="AudioLoader" type="JavaScriptTestRunnerVitest" temporary="true" nameIsGenerated="true">
-      <node-interpreter value="project" />
-      <vitest-package value="$PROJECT_DIR$/src/cadence/node_modules/vitest" />
-      <working-dir value="$PROJECT_DIR$/src/cadence" />
-      <vitest-options value="--run" />
-      <envs />
-      <scope-kind value="SUITE" />
-      <test-file value="$PROJECT_DIR$/src/cadence/src/AudioLoader.spec.ts" />
-      <test-names>
-        <test-name value="AudioLoader" />
-      </test-names>
-      <method v="2" />
-    </configuration>
-    <configuration name="AudioLoader.should not load a loop if it is already loaded" type="JavaScriptTestRunnerVitest" temporary="true" nameIsGenerated="true">
-      <node-interpreter value="project" />
-      <vitest-package value="$PROJECT_DIR$/src/cadence/node_modules/vitest" />
-      <working-dir value="$PROJECT_DIR$/src/cadence" />
-      <vitest-options value="--run" />
-      <envs />
-      <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/src/cadence/src/AudioLoader.spec.ts" />
-      <test-names>
-        <test-name value="AudioLoader" />
-        <test-name value="should not load a loop if it is already loaded" />
-      </test-names>
-      <method v="2" />
-    </configuration>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/docs/content/api-documentation" />
+      <recent name="$PROJECT_DIR$/docs/content/library" />
+    </key>
+  </component>
+  <component name="RunManager" selected="npm.playground &gt; dev">
     <configuration name="LoadedLoop" type="JavaScriptTestRunnerVitest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <vitest-package value="$PROJECT_DIR$/src/cadence/node_modules/vitest" />
@@ -127,22 +113,35 @@
       </test-names>
       <method v="2" />
     </configuration>
+    <configuration name="docs &gt; docs:dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/docs/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="docs:dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="playground &gt; dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/src/playground/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.playground &gt; dev" />
+        <item itemvalue="npm.docs &gt; docs:dev" />
         <item itemvalue="Vitest.LoadedLoop.should stop the loop at the correct time" />
         <item itemvalue="Vitest.LoadedLoop.should start the loop at the correct time" />
         <item itemvalue="Vitest.LoadedLoop" />
-        <item itemvalue="Vitest.AudioLoader.should not load a loop if it is already loaded" />
-        <item itemvalue="Vitest.AudioLoader" />
       </list>
     </recent_temporary>
-  </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="bundled-js-predefined-1d06a55b98c1-c44b541a36ca-JavaScript-WS-233.13135.92" />
-      </set>
-    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -153,6 +152,7 @@
       <option name="presentableId" value="Default" />
       <updated>1703768810527</updated>
       <workItem from="1703768812798" duration="4441000" />
+      <workItem from="1704827289914" duration="2561000" />
     </task>
     <servers />
   </component>

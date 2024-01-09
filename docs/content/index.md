@@ -3,7 +3,7 @@
 layout: home
 
 hero:
-  name: "CadenceJs"
+  name: "Cadence Js"
   tagline: Embrace the rhythm of creation with Cadence, your open-source audio toolbox.
   actions:
     - theme: brand
@@ -11,7 +11,10 @@ hero:
       link: /getting-started
     - theme: alt
       text: Api Documentation
-      link: /api-documentation
+      link: /api-documentation/
+    - theme: alt
+      text: Test in playground
+      link: https://timothee-durand.github.io/cadence/playground
 
 features:
   - title: Make loop

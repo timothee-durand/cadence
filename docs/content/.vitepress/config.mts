@@ -2,13 +2,18 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "CadenceJs",
-  description: "Cadence is a music js library",
+  title: "Cadence",
+  description: "Cadence is a music ts library",
   base: "/cadence/",
+  lastUpdated: true,
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
+    search: {
+      provider: 'local'
+    },
     nav: [
       { text: 'Home', link: '/' },
+      { text: 'Getting Started', link: '/getting-started' },
       { text: 'Playground', link: 'https://timothee-durand.github.io/cadence/playground', target: '_blank' },
     ],
 
@@ -22,7 +27,9 @@ export default defineConfig({
       {
         text: 'API',
         items: [
-          { text: 'Api documentation', link: '/api-documentation' },
+          { text: 'Cadence', link: '/api-documentation/' },
+          { text: 'Loop and Song', link: '/api-documentation/loop' },
+          { text: 'Effects (not implemented yet)', link: '/api-documentation/effects' },
       ]
       },
       {

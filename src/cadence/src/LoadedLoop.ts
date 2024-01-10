@@ -1,5 +1,5 @@
 import { Loop, Time } from './types'
-import { convertStringToS } from './utils/convertTimeToMs'
+import { convertStringToS, convertTimeToMs } from './utils/convertTimeToMs'
 
 export class LoadedLoop {
   sample: string
@@ -8,9 +8,10 @@ export class LoadedLoop {
   private endTime: Time = '0s'
   private volume = 1
   private buffer: AudioBuffer
-  sourceNode: AudioBufferSourceNode | undefined
-  gainNode: GainNode | undefined
+  private interval: number | undefined
+  nodes: AudioNode[] = []
   private audioContext: AudioContext
+  private intervalId: number | undefined
 
   constructor({ buffer, loop, audioContext }: { buffer: AudioBuffer, loop: Loop, audioContext: AudioContext }) {
     this.buffer = buffer
@@ -19,16 +20,33 @@ export class LoadedLoop {
     if (loop.volume) this.volume = loop.volume
     if (loop.startTime) this.startTime = loop.startTime
     if (loop.endTime) this.endTime = loop.endTime
+    if (loop.interval) this.interval = convertTimeToMs(loop.interval)
     this.audioContext = audioContext
   }
 
   public loop(): void {
-    this.sourceNode = createBufferSource(this.audioContext, this.speed, this.buffer)
-    this.gainNode = createGainNode(this.audioContext, this.volume)
-    this.sourceNode.connect(this.gainNode)
-    this.gainNode.connect(this.audioContext.destination)
-    this.sourceNode.start(this.audioContext.currentTime + this.startTimeS)
-    this.sourceNode.stop(this.audioContext.currentTime + this.endTimeS)
+    const playSound = () => {
+      const sourceNode = createBufferSource(this.audioContext, this.speed, this.buffer)
+      const gainNode = createGainNode(this.audioContext, this.volume)
+      sourceNode.connect(gainNode)
+      gainNode.connect(this.audioContext.destination)
+      sourceNode.start()
+      this.nodes.push(sourceNode)
+      this.nodes.push(gainNode)
+    }
+
+    if (this.interval) {
+      this.intervalId = setInterval(playSound, this.interval)
+      playSound()
+    }
+    if (this.startTimeS) {
+      const startTime = this.startTimeS
+      setTimeout(playSound, startTime * 1000)
+    }
+    if (this.endTimeS) {
+      const duration = this.endTimeS - this.startTimeS
+      setTimeout(this.stop, duration * 1000)
+    }
   }
 
   private get endTimeS(): number {
@@ -46,14 +64,15 @@ export class LoadedLoop {
   }
 
   public stop(): void {
-    this.sourceNode?.stop()
+    clearInterval(this.intervalId)
+    this.nodes.forEach(node => node.disconnect())
+    this.nodes = []
   }
 }
 
 export function createBufferSource(context: AudioContext, speed: number, buffer: AudioBuffer): AudioBufferSourceNode {
   const source = context.createBufferSource()
   source.buffer = buffer
-  source.loop = true
   source.playbackRate.value = speed
   return source
 }

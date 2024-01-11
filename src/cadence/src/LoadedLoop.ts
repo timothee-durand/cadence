@@ -1,5 +1,6 @@
 import { Loop, Time } from './types'
 import { convertStringToS, convertTimeToMs } from './utils/convertTimeToMs'
+import { Timer } from './Timer'
 
 export class LoadedLoop {
   sample: string
@@ -8,13 +9,14 @@ export class LoadedLoop {
   private endTime: Time = '0s'
   private volume = 1
   private buffer: AudioBuffer
+  private timer: Timer
   private interval: number | undefined
-  nodes: AudioNode[] = []
+  private nodes: AudioNode[] = []
   private audioContext: AudioContext
-  private intervalId: number | undefined
 
-  constructor({ buffer, loop, audioContext }: { buffer: AudioBuffer, loop: Loop, audioContext: AudioContext }) {
+  constructor({ buffer, loop, audioContext, timer }: { buffer: AudioBuffer, loop: Loop, audioContext: AudioContext, timer: Timer }) {
     this.buffer = buffer
+    this.timer = timer
     this.sample = loop.sample
     if (loop.speed) this.speed = loop.speed
     if (loop.volume) this.volume = loop.volume
@@ -36,16 +38,16 @@ export class LoadedLoop {
     }
 
     if (this.interval) {
-      this.intervalId = setInterval(playSound, this.interval)
+      this.timer.createInterval(playSound, this.interval)
       playSound()
     }
     if (this.startTimeS) {
       const startTime = this.startTimeS
-      setTimeout(playSound, startTime * 1000)
+      this.timer.createTimeout(playSound, startTime * 1000)
     }
     if (this.endTimeS) {
       const duration = this.endTimeS - this.startTimeS
-      setTimeout(this.stop, duration * 1000)
+      this.timer.createTimeout(() => this.stop(), duration * 1000)
     }
   }
 
@@ -63,8 +65,16 @@ export class LoadedLoop {
     return this.sample
   }
 
+  get timerInstance(): Timer {
+    return this.timer
+  }
+
+  get audioNodes(): readonly AudioNode[] {
+    return Object.freeze(this.nodes)
+  }
+
   public stop(): void {
-    clearInterval(this.intervalId)
+    this.timer.stopAll()
     this.nodes.forEach(node => node.disconnect())
     this.nodes = []
   }

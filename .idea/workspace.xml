@@ -5,9 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b7e0a846-194a-4a6d-afe5-9d21b706db32" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/cadence/src/Timer.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cadence/src/AudioLoader.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/cadence/src/AudioLoader.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cadence/src/LoadedLoop.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/cadence/src/LoadedLoop.spec.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cadence/src/LoadedLoop.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/cadence/src/LoadedLoop.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cadence/src/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/cadence/src/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cadence/test/utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/cadence/test/utils.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,10 +45,11 @@
     "Vitest.AudioLoader.executor": "Run",
     "Vitest.AudioLoader.should not load a loop if it is already loaded.executor": "Run",
     "Vitest.LoadedLoop.executor": "Run",
+    "Vitest.LoadedLoop.should create an interval.executor": "Run",
     "Vitest.LoadedLoop.should start the loop at the correct time.executor": "Run",
     "Vitest.LoadedLoop.should stop the loop at the correct time.executor": "Run",
     "Vitest.decodeAudioData.executor": "Run",
-    "git-widget-placeholder": "chore/update-docs",
+    "git-widget-placeholder": "feat/interval",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
     "node.js.detected.package.tslint": "true",
@@ -54,6 +58,7 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "pnpm",
     "npm.cadence > generate:playground.executor": "Run",
+    "npm.cadence > test.executor": "Run",
     "npm.docs > docs:dev.executor": "Run",
     "npm.playground > dev.executor": "Run",
     "settings.editor.selected.configurable": "settings.javascript.linters.eslint",
@@ -67,22 +72,21 @@
       <recent name="$PROJECT_DIR$/docs/content/library" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.cadence &gt; generate:playground">
-    <configuration name="LoadedLoop.should start the loop at the correct time" type="JavaScriptTestRunnerVitest" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Vitest.LoadedLoop">
+    <configuration name="LoadedLoop" type="JavaScriptTestRunnerVitest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <vitest-package value="$PROJECT_DIR$/src/cadence/node_modules/vitest" />
       <working-dir value="$PROJECT_DIR$/src/cadence" />
       <vitest-options value="--run" />
       <envs />
-      <scope-kind value="TEST" />
+      <scope-kind value="SUITE" />
       <test-file value="$PROJECT_DIR$/src/cadence/src/LoadedLoop.spec.ts" />
       <test-names>
         <test-name value="LoadedLoop" />
-        <test-name value="should start the loop at the correct time" />
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="LoadedLoop.should stop the loop at the correct time" type="JavaScriptTestRunnerVitest" temporary="true" nameIsGenerated="true">
+    <configuration name="LoadedLoop.should create an interval" type="JavaScriptTestRunnerVitest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <vitest-package value="$PROJECT_DIR$/src/cadence/node_modules/vitest" />
       <working-dir value="$PROJECT_DIR$/src/cadence" />
@@ -92,7 +96,7 @@
       <test-file value="$PROJECT_DIR$/src/cadence/src/LoadedLoop.spec.ts" />
       <test-names>
         <test-name value="LoadedLoop" />
-        <test-name value="should stop the loop at the correct time" />
+        <test-name value="should create an interval" />
       </test-names>
       <method v="2" />
     </configuration>
@@ -106,11 +110,11 @@
       <envs />
       <method v="2" />
     </configuration>
-    <configuration name="docs &gt; docs:dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/docs/package.json" />
+    <configuration name="cadence &gt; test" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/src/cadence/package.json" />
       <command value="run" />
       <scripts>
-        <script value="docs:dev" />
+        <script value="test" />
       </scripts>
       <node-interpreter value="project" />
       <envs />
@@ -128,11 +132,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Vitest.LoadedLoop" />
+        <item itemvalue="Vitest.LoadedLoop.should create an interval" />
+        <item itemvalue="npm.cadence &gt; test" />
         <item itemvalue="npm.cadence &gt; generate:playground" />
         <item itemvalue="npm.playground &gt; dev" />
-        <item itemvalue="npm.docs &gt; docs:dev" />
-        <item itemvalue="Vitest.LoadedLoop.should stop the loop at the correct time" />
-        <item itemvalue="Vitest.LoadedLoop.should start the loop at the correct time" />
       </list>
     </recent_temporary>
   </component>
@@ -146,6 +150,7 @@
       <updated>1703768810527</updated>
       <workItem from="1703768812798" duration="4441000" />
       <workItem from="1704827289914" duration="2561000" />
+      <workItem from="1704980506453" duration="792000" />
     </task>
     <servers />
   </component>

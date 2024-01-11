@@ -1,5 +1,6 @@
 import { Loop, Song } from './types'
 import { LoadedLoop } from './LoadedLoop'
+import { Timer } from './Timer'
 
 export class AudioLoader {
   private loadedLoop: LoadedLoop[] = []
@@ -38,7 +39,7 @@ export class AudioLoader {
     const response = await fetch(loop.sample)
     const arrayBuffer = await response.arrayBuffer()
     const sample = await decodeAudioData(arrayBuffer)
-    this.loadedLoop.push(new LoadedLoop({ buffer: sample, loop, audioContext: this.audioContext }))
+    this.loadedLoop.push(new LoadedLoop({ buffer: sample, loop, audioContext: this.audioContext, timer: new Timer() }))
   }
 }
 

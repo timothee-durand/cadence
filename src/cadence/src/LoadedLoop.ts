@@ -1,7 +1,6 @@
 import { Loop, Time } from './types'
 import { convertTimeToS, convertTimeToMs } from './utils/convertTime'
 import { Timer } from './Timer'
-import { vi } from 'vitest'
 
 export class LoadedLoop {
   sample: string
@@ -93,11 +92,3 @@ export function createGainNode(context: AudioContext, volume: number): GainNode 
   gainNode.gain.value = volume
   return gainNode
 }
-
-export const LoadedLoopMock = vi.fn(() => ({
-  loop: vi.fn(),
-  stop: vi.fn(),
-  samplePath: 'https://www.example.com',
-  timerInstance: vi.fn(),
-  audioNodes: [],
-}))

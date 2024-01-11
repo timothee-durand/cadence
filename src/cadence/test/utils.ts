@@ -1,4 +1,5 @@
 import { vi } from 'vitest'
+import { LoadedLoopMock } from '../src/LoadedLoop.spec'
 
 export const AudioBufferMock = vi.fn(() => ({
   duration: 1,
@@ -28,4 +29,17 @@ export const AudioContextMock = vi.fn(() => ({
   createBufferSource: vi.fn().mockImplementation(() => new AudioSourceNodeMock()),
   createGain: vi.fn().mockImplementation(() => new GainNodeMock()),
   currentTime: 0,
+}))
+
+export const TimerMock = vi.fn(() => ({
+  createInterval: vi.fn(),
+  createTimeout: vi.fn(),
+  stopAll: vi.fn(),
+}))
+
+export const AudioLoaderMock = vi.fn(() => ({
+  loadSong: vi.fn(),
+  getLoops: vi.fn(() => [
+    new LoadedLoopMock(),
+  ]),
 }))

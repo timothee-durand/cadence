@@ -8,7 +8,9 @@ export const DirectoryItem: FC<{ directory: SampleDirectory, onSampleClick: AddS
     const formattedName = directory.name.replace('-', ' ')
     return (
         <AccordionItem value={`directory-${directory.name}`} className="w-full">
-            <AccordionTrigger className="font-bold capitalize">{formattedName}</AccordionTrigger>
+            <AccordionTrigger className="font-bold capitalize">
+                {formattedName}
+            </AccordionTrigger>
             <AccordionContent>
                 {directory.samples.map((s, i) => <SampleItem sample={s} key={`s-${i}`} onClick={() => onSampleClick({sampleName: s.name, directoryName: directory.name})}/>)}
             </AccordionContent>

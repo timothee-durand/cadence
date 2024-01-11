@@ -25,13 +25,13 @@ function App() {
 
             </header>
             <Separator/>
-            <div className="grid grid-cols-2 gap-5 max-w-5xl py-5 mx-auto h-editor">
-                <CadenceEditor ref={editorRef}/>
-                <div>
-                    <AssetsList sampleDirectories={sampleDirectories} onSampleClick={(payload) => {
-                        editorRef.current?.addSampleImport(payload)
-                    }}/>
-                </div>
+            <div className="flex gap-1 max-w-5xl py-5 mx-auto w-full h-editor">
+                <CadenceEditor ref={editorRef} className="w-8/12"/>
+                <AssetsList
+                    className="w-4/12"
+                    sampleDirectories={sampleDirectories} onSampleClick={(payload) => {
+                    editorRef.current?.addSampleImport(payload)
+                }}/>
 
             </div>
 

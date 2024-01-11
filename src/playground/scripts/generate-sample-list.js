@@ -39,15 +39,8 @@ function fileAsSample(files, directory) {
     return files.map(file => {
         let fileName = extractName(file);
         let filePath = extractFileName(file);
-        return `{ name: '${fileName}', path: "/samples/${directory}/${filePath}" }`
+        return `{ name: '${directory} - ${fileName}', path: "/samples/${directory}/${filePath}" }`
     })
-}
-
-function fileAsImport(files) {
-    return files.map(file => {
-        return `import ${extractName(file)} from "${extractFileName(file)}"`
-    })
-
 }
 
 function fileContent(files, name, index) {

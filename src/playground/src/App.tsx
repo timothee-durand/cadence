@@ -4,6 +4,7 @@ import {CadenceEditor, CadenceEditorComponentType} from "@/components/editor.tsx
 import {AssetsList} from "@/components/samplesList/assetsList.tsx";
 import {sampleDirectories} from "@/assets-list.ts";
 import {Separator} from "@/components/ui/separator.tsx";
+import {ModeToggle} from "@/components/theme/mode-toggle.tsx";
 
 function App() {
     const editorRef = useRef<CadenceEditorComponentType>(null)
@@ -18,6 +19,7 @@ function App() {
                         <Button onClick={() => editorRef.current?.add()}>Add</Button>
                         <Button onClick={() => editorRef.current?.play()}>Play</Button>
                         <Button onClick={() => editorRef.current?.stop()}>Stop all</Button>
+                        <ModeToggle/>
                     </div>
                 </div>
 

@@ -59,7 +59,9 @@ async function createEditor(monaco: Monaco) {
         importsNotUsedAsValues: "remove",
     });
 }
-type CadenceEditorProps = {};
+type CadenceEditorProps = {
+    className?: string
+};
 
 
 export type CadenceEditorComponentType = {
@@ -67,7 +69,7 @@ export type CadenceEditorComponentType = {
 } & CadencePlayerRef
 
 
-export const CadenceEditor = forwardRef<CadenceEditorComponentType, CadenceEditorProps>((_, ref) => {
+export const CadenceEditor = forwardRef<CadenceEditorComponentType, CadenceEditorProps>(({className}, ref) => {
     const [code, setCode] = useState<string>('')
     const cadencePlayerRef = useRef<CadencePlayerRef>(null);
     useEffect(() => {
@@ -91,11 +93,11 @@ export const CadenceEditor = forwardRef<CadenceEditorComponentType, CadenceEdito
 
 
     return (
-        <div >
+        <div className={className}>
             <Editor
                 className="rounded-md"
                 theme="vs-dark"
-                height="60vh"
+                height="70vh"
                 defaultLanguage="typescript"
                 beforeMount={createEditor}
                 value={code}

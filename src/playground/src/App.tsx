@@ -4,6 +4,7 @@ import {CadenceEditor, CadenceEditorComponentType} from "@/components/editor.tsx
 import {AssetsList} from "@/components/samplesList/assetsList.tsx";
 import {sampleDirectories} from "@/assets-list.ts";
 import {Separator} from "@/components/ui/separator.tsx";
+import {ModeToggle} from "@/components/theme/mode-toggle.tsx";
 
 function App() {
     const editorRef = useRef<CadenceEditorComponentType>(null)
@@ -18,18 +19,19 @@ function App() {
                         <Button onClick={() => editorRef.current?.add()}>Add</Button>
                         <Button onClick={() => editorRef.current?.play()}>Play</Button>
                         <Button onClick={() => editorRef.current?.stop()}>Stop all</Button>
+                        <ModeToggle/>
                     </div>
                 </div>
 
             </header>
             <Separator/>
-            <div className="grid grid-cols-2 gap-5 max-w-5xl py-5 mx-auto h-editor">
-                <CadenceEditor ref={editorRef}/>
-                <div>
-                    <AssetsList sampleDirectories={sampleDirectories} onSampleClick={(payload) => {
-                        editorRef.current?.addSampleImport(payload)
-                    }}/>
-                </div>
+            <div className="flex gap-1 max-w-5xl py-5 mx-auto w-full h-editor">
+                <CadenceEditor ref={editorRef} className="w-8/12"/>
+                <AssetsList
+                    className="w-4/12"
+                    sampleDirectories={sampleDirectories} onSampleClick={(payload) => {
+                    editorRef.current?.addSampleImport(payload)
+                }}/>
 
             </div>
 

@@ -10,7 +10,7 @@ export interface Fade {
 }
 
 export type Effect = Distorsion | Fade
-export type Time = `${number}s`
+export type Time = `${number}s` | `${number}ms`
 
 export interface Loop {
   sample: string

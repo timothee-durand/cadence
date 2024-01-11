@@ -1,11 +1,18 @@
 import { beforeEach, describe, vi, it, expect } from 'vitest'
-import { AudioBufferMock, AudioContextMock, AudioSourceNodeMock } from '../test/utils'
+import { AudioBufferMock, AudioContextMock } from '../test/utils'
 import { LoadedLoop } from './LoadedLoop'
 import { Loop } from './types'
-import { convertStringToS } from './utils/convertTimeToMs'
 
 vi.stubGlobal('AudioBuffer', AudioBufferMock)
 vi.stubGlobal('AudioContext', AudioContextMock)
+
+const TimerMock = vi.fn(() => ({
+  createInterval: vi.fn(),
+  createTimeout: vi.fn(),
+  stopAll: vi.fn(),
+}))
+
+vi.stubGlobal('TimerMock', TimerMock)
 
 describe('LoadedLoop', () => {
   let loadedLoop: LoadedLoop
@@ -20,6 +27,7 @@ describe('LoadedLoop', () => {
       interval: '1s',
     }
     loadedLoop = new LoadedLoop({
+      timer: new TimerMock(),
       buffer: new AudioBufferMock({ length: 1, sampleRate: 1 }),
       loop: loop,
       audioContext,
@@ -30,28 +38,22 @@ describe('LoadedLoop', () => {
     loadedLoop.loop()
     expect(audioContext.createBufferSource).toHaveBeenCalled()
     expect(audioContext.createGain).toHaveBeenCalled()
-    expect(loadedLoop.sourceNode?.connect).toHaveBeenCalled()
-    expect(loadedLoop.gainNode?.connect).toHaveBeenCalled()
-    expect(loadedLoop.sourceNode?.start).toHaveBeenCalled()
+  })
+
+  it('should create an interval', () => {
+    loadedLoop.loop()
+    expect(loadedLoop.timerInstance.createInterval).toHaveBeenCalled()
+  })
+
+  it('should create a timeout', () => {
+    loadedLoop.loop()
+    expect(loadedLoop.timerInstance.createTimeout).toHaveBeenCalled()
   })
 
   it('should stop buffer source', () => {
     loadedLoop.loop()
     loadedLoop.stop()
-    expect(loadedLoop.sourceNode?.stop).toHaveBeenCalled()
-  })
-
-  it('should start the loop at the correct time', () => {
-    loadedLoop.loop()
-    const souceNode = loadedLoop.sourceNode as typeof AudioSourceNodeMock
-    const startTime = souceNode.start.mock.calls[0][0]
-    expect(startTime).toBe(convertStringToS(loop.startTime as string))
-  })
-
-  it('should stop the loop at the correct time', () => {
-    loadedLoop.loop()
-    const souceNode = loadedLoop.sourceNode as typeof AudioSourceNodeMock
-    const stopTime = souceNode.stop.mock.calls[0][0]
-    expect(stopTime).toBe(convertStringToS(loop.endTime as string))
+    expect(loadedLoop.timerInstance.stopAll).toHaveBeenCalled()
+    expect(loadedLoop.audioNodes.length).toBe(0)
   })
 })

@@ -5,18 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b7e0a846-194a-4a6d-afe5-9d21b706db32" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/content/.vitepress/config.mts" beforeDir="false" afterPath="$PROJECT_DIR$/docs/content/.vitepress/config.mts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cadence/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/cadence/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cadence/spack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/cadence/spack.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cadence/src/AudioLoader.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/cadence/src/AudioLoader.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cadence/src/Cadence.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/cadence/src/Cadence.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cadence/src/LoadedLoop.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/cadence/src/LoadedLoop.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cadence/src/LoadedLoop.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/cadence/src/LoadedLoop.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cadence/test/utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/cadence/test/utils.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cadence/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/cadence/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cadence/tsconfig.playground-declaration.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/playground/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/playground/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/playground/src/Test.tsx" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,6 +64,7 @@
     "npm.cadence > test.executor": "Run",
     "npm.docs > docs:build.executor": "Run",
     "npm.docs > docs:dev.executor": "Run",
+    "npm.playground > build.executor": "Run",
     "npm.playground > dev.executor": "Run",
     "settings.editor.selected.configurable": "settings.javascript.linters.eslint",
     "ts.external.directory.path": "/Users/timothee/CODE/COURS/iim-pfe-23-24/src/playground/node_modules/typescript/lib",
@@ -85,20 +77,7 @@
       <recent name="$PROJECT_DIR$/docs/content/library" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.docs &gt; docs:build">
-    <configuration name="AudioLoader" type="JavaScriptTestRunnerVitest" temporary="true" nameIsGenerated="true">
-      <node-interpreter value="project" />
-      <vitest-package value="$PROJECT_DIR$/src/cadence/node_modules/vitest" />
-      <working-dir value="$PROJECT_DIR$/src/cadence" />
-      <vitest-options value="--run" />
-      <envs />
-      <scope-kind value="SUITE" />
-      <test-file value="$PROJECT_DIR$/src/cadence/src/AudioLoader.spec.ts" />
-      <test-names>
-        <test-name value="AudioLoader" />
-      </test-names>
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="npm.playground &gt; build">
     <configuration name="Cadence" type="JavaScriptTestRunnerVitest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <vitest-package value="$PROJECT_DIR$/src/cadence/node_modules/vitest" />
@@ -145,13 +124,23 @@
       <envs />
       <method v="2" />
     </configuration>
+    <configuration name="playground &gt; build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/src/playground/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="build" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.playground &gt; build" />
         <item itemvalue="npm.docs &gt; docs:build" />
         <item itemvalue="npm.cadence &gt; coverage" />
         <item itemvalue="Vitest.Cadence" />
         <item itemvalue="Vitest.Timer" />
-        <item itemvalue="Vitest.AudioLoader" />
       </list>
     </recent_temporary>
   </component>

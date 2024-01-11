@@ -1,6 +1,7 @@
 import { Loop, Song } from './types'
-import { LoadedLoop } from './LoadedLoop'
+import { LoadedLoop, LoadedLoopMock } from './LoadedLoop'
 import { Timer } from './Timer'
+import { vi } from 'vitest'
 
 export class AudioLoader {
   private loadedLoop: LoadedLoop[] = []
@@ -47,3 +48,10 @@ export async function decodeAudioData(arrayBuffer: ArrayBuffer): Promise<AudioBu
   const audioContext = new AudioContext()
   return await audioContext.decodeAudioData(arrayBuffer)
 }
+
+export const AudioLoaderMock = vi.fn(() => ({
+  loadSong: vi.fn(),
+  getLoops: vi.fn(() => [
+    new LoadedLoopMock(),
+  ]),
+}))

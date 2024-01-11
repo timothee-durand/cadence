@@ -5,6 +5,12 @@ export class Cadence implements AbstractCadence {
   private song: Song = []
   private loader = new AudioLoader()
 
+  constructor(loader?: AudioLoader) {
+    if (loader) {
+      this.loader = loader
+    }
+  }
+
   public add(): void {
     throw new Error('Method not implemented.')
   }

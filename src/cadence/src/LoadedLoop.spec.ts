@@ -1,25 +1,27 @@
 import { beforeEach, describe, vi, it, expect } from 'vitest'
-import { AudioBufferMock, AudioContextMock } from '../test/utils'
+import { AudioBufferMock, AudioContextMock, TimerMock } from '../test/utils'
 import { LoadedLoop } from './LoadedLoop'
 import { Loop } from './types'
+import { Timer } from './Timer'
 
 vi.stubGlobal('AudioBuffer', AudioBufferMock)
 vi.stubGlobal('AudioContext', AudioContextMock)
-
-const TimerMock = vi.fn(() => ({
-  createInterval: vi.fn(),
-  createTimeout: vi.fn(),
-  stopAll: vi.fn(),
-}))
-
 vi.stubGlobal('TimerMock', TimerMock)
+
+export const LoadedLoopMock = vi.fn(() => ({
+  loop: vi.fn(),
+  stop: vi.fn(),
+  samplePath: 'https://www.example.com',
+  timerInstance: vi.fn(),
+  audioNodes: [],
+}))
 
 describe('LoadedLoop', () => {
   let loadedLoop: LoadedLoop
   let audioContext: AudioContext
   let loop: Loop
   beforeEach(() => {
-    audioContext = new AudioContextMock()
+    audioContext = new AudioContextMock() as unknown as AudioContext
     loop = {
       sample: 'https://www.example.com',
       startTime: '0s',
@@ -27,8 +29,8 @@ describe('LoadedLoop', () => {
       interval: '1s',
     }
     loadedLoop = new LoadedLoop({
-      timer: new TimerMock(),
-      buffer: new AudioBufferMock({ length: 1, sampleRate: 1 }),
+      timer: new TimerMock() as unknown as Timer,
+      buffer: new AudioBufferMock() as unknown as AudioBuffer,
       loop: loop,
       audioContext,
     })

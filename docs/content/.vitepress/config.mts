@@ -6,6 +6,7 @@ export default defineConfig({
   description: "Cadence is a music ts library",
   base: "/cadence/",
   lastUpdated: true,
+  ignoreDeadLinks: true,
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     search: {

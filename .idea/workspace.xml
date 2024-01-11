@@ -6,18 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="b7e0a846-194a-4a6d-afe5-9d21b706db32" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/playground/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/playground/app/globals.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/playground/generate-sample-list.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/playground/scripts/generate-sample-list.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/playground/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/playground/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/playground/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/playground/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/playground/src/assets-list.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/playground/src/assets-list.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/playground/src/components/editor.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/playground/src/components/editor.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/playground/src/components/samplesList/assetsList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/playground/src/components/samplesList/assetsList.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/playground/src/components/samplesList/sampleDirectory.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/playground/src/components/samplesList/sampleDirectory.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/playground/src/components/ui/accordion.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/playground/src/components/ui/accordion.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/playground/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/playground/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/playground/src/Test.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/playground/src/components/samplesList/sampleItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/playground/src/components/samplesList/sampleItem.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

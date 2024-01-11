@@ -25,16 +25,16 @@ const AccordionTrigger = React.forwardRef<
         <AccordionPrimitive.Trigger
             ref={ref}
             className={cn(
-                "flex flex-1 items-center justify-between py-4 px-2 text-sm font-medium transition-all hover:bg-secondary rounded hover:text-secondary-foreground [&[data-state=open]>.close]:hidden [&[data-state=open]>.open]:block",
+                "flex flex-1 items-center py-4 px-2 text-sm font-medium transition-all hover:bg-secondary rounded hover:text-secondary-foreground [&[data-state=open]>.close]:hidden [&[data-state=open]>.open]:block",
                 className
             )}
             {...props}
         >
-            <Folder className="close"/>
-            <FolderOpen className="open hidden"/>
-            <span>
+            <Folder className="close mr-3"/>
+            <FolderOpen className="open hidden mr-3"/>
+            <div className="grow text-left">
                 {children}
-            </span>
+            </div>
         </AccordionPrimitive.Trigger>
     </AccordionPrimitive.Header>
 ))

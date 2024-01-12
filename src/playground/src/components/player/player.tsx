@@ -64,7 +64,6 @@ export const CadencePlayer = forwardRef<CadencePlayerRef, CadencePlayerProps>(({
             document.body.removeChild(script.element);
             // @ts-expect-error global variable is removed
             const global = window[script.globalVariableName]
-            console.log(global)
             if(global) {
                 global();
                 // @ts-expect-error global variable is removed
@@ -111,5 +110,5 @@ export const CadencePlayer = forwardRef<CadencePlayerRef, CadencePlayerProps>(({
     }, []);
 
 
-    return <div/>
+    return <></>
 })

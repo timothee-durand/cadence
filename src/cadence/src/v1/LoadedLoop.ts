@@ -1,5 +1,5 @@
 import { Loop, Time } from './types'
-import { convertTimeToS, convertTimeToMs } from './utils/convertTime'
+import { convertTimeToS, convertTimeToMs } from '../utils/convertTime'
 import { Timer } from './Timer'
 
 export class LoadedLoop {

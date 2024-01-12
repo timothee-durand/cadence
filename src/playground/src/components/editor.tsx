@@ -19,11 +19,8 @@ async function main() {
 
    
     
-    loop(async () => {
-        playSample(bassAs1);
-        await wait(500);
-        playSample(bassCs2);
-    }, 2000);
+    //playSample(bassAs1).withEffect({type: "in", name:"fade", time: '1s'})
+    playSample(bassAs1).withEffect({ name:"distorsion", value: 500})
 }
 main();
 `
@@ -32,7 +29,7 @@ main();
 async function fetchCadenceTypes(): Promise<string> {
     try {
         const types = await fetch('cadence.d.ts').then((res) => res.text());
-        return types.replace("declare module \"index\"", 'declare module "cadence-js"')
+        return types.replace("declare module \"cadence2/index\"", 'declare module "cadence-js"')
     } catch (e) {
         console.error(e);
         return ''
@@ -67,6 +64,7 @@ async function createEditor(monaco: Monaco) {
     });
     console.log(monaco.languages.typescript.typescriptDefaults.getCompilerOptions())
 }
+
 type CadenceEditorProps = {
     className?: string
 };

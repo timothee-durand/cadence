@@ -1,3 +1,7 @@
+import { convertTimeToS } from '../utils/convertTime'
+
+export type Time = `${number}s` | `${number}ms`
+
 export interface Distorsion {
   name: 'distorsion'
   value: number
@@ -5,7 +9,7 @@ export interface Distorsion {
 
 export interface Fade {
   name: 'fade'
-  time: number
+  time: Time
   type: 'in' | 'out'
 }
 
@@ -15,13 +19,15 @@ export interface SampleNode {
   withEffect(effect: Effect): SampleNode
 
   stop(): void
+
+  start(): void
 }
 
-function applyDistorsion({ source, effect, audioContext }: { source: AudioBufferSourceNode, effect: Distorsion, audioContext: AudioContext }): void {
+function applyDistorsion({ effect, audioContext }: { effect: Distorsion, audioContext: AudioContext }): WaveShaperNode {
   const distortion = audioContext.createWaveShaper()
   distortion.curve = makeDistortionCurve(effect.value)
   distortion.oversample = '4x'
-  source.connect(distortion)
+  return distortion
 }
 
 function makeDistortionCurve(amount: number): Float32Array {
@@ -38,27 +44,22 @@ function makeDistortionCurve(amount: number): Float32Array {
   return curve
 }
 
-function applyFade({ effect, audioContext, gainNode }: { effect: Fade, audioContext: AudioContext, gainNode: GainNode }): void {
+function applyFade({ effect, audioContext, volume }: {
+  effect: Fade
+  audioContext: AudioContext
+  volume: number
+}): GainNode {
+  const gainNode = audioContext.createGain()
   switch (effect.type) {
     case 'in':
-      gainNode.gain.linearRampToValueAtTime(0, audioContext.currentTime)
-      gainNode.gain.linearRampToValueAtTime(1, audioContext.currentTime + effect.time)
-      break
+      gainNode.gain.value = 0
+      gainNode.gain.exponentialRampToValueAtTime(volume, audioContext.currentTime + convertTimeToS(effect.time))
+      return gainNode
     case 'out':
-      gainNode.gain.linearRampToValueAtTime(1, audioContext.currentTime)
-      gainNode.gain.linearRampToValueAtTime(0, audioContext.currentTime + effect.time)
-      break
-  }
-}
-
-function applyEffect({ source, effect, audioContext, gainNode }: { source: AudioBufferSourceNode, effect: Effect, audioContext: AudioContext, gainNode: GainNode }): void {
-  switch (effect.name) {
-    case 'distorsion':
-      applyDistorsion({ source, effect, audioContext })
-      break
-    case 'fade':
-      applyFade({ effect, audioContext, gainNode })
-      break
+      setTimeout(() => {
+        gainNode.gain.linearRampToValueAtTime(0, audioContext.currentTime + convertTimeToS(effect.time))
+      }, convertTimeToS(effect.time))
+      return gainNode
   }
 }
 
@@ -80,18 +81,30 @@ export function playSample({ audioContext, audioBuffer, options }: {
   const source = audioContext.createBufferSource()
   source.buffer = audioBuffer
   source.playbackRate.value = playerOptions.speed
-  source.connect(audioContext.destination)
   const gainNode = audioContext.createGain()
   gainNode.gain.value = playerOptions.volume
-  source.connect(gainNode)
-  source.start()
+  const effects: AudioNode[] = []
   return {
     withEffect(effect: Effect): SampleNode {
-      applyEffect({ source, effect, audioContext, gainNode })
+      switch (effect.name) {
+        case 'distorsion':
+          effects.push(applyDistorsion({ effect, audioContext }))
+          break
+        case 'fade':
+          effects.push(applyFade({ effect, audioContext, volume: playerOptions.volume }))
+          break
+      }
       return this
     },
     stop() {
       source.stop()
+    },
+    start() {
+      effects.forEach((effect) => {
+        source.connect(effect)
+        effect.connect(gainNode)
+      })
+      source.start()
     },
   }
 }

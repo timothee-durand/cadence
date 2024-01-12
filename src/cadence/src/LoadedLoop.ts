@@ -14,7 +14,12 @@ export class LoadedLoop {
   private nodes: AudioNode[] = []
   private audioContext: AudioContext
 
-  constructor({ buffer, loop, audioContext, timer }: { buffer: AudioBuffer, loop: Loop, audioContext: AudioContext, timer: Timer }) {
+  constructor({ buffer, loop, audioContext, timer }: {
+    buffer: AudioBuffer
+    loop: Loop
+    audioContext: AudioContext
+    timer: Timer
+  }) {
     this.buffer = buffer
     this.timer = timer
     this.sample = loop.sample
@@ -37,16 +42,25 @@ export class LoadedLoop {
       this.nodes.push(gainNode)
     }
 
-    if (this.interval) {
+    const launchSound = () => {
+      if (!this.interval) {
+        playSound()
+        return
+      }
       this.timer.createInterval(playSound, this.interval)
       playSound()
     }
+
     if (this.startTimeS) {
       const startTime = this.startTimeS
-      this.timer.createTimeout(playSound, startTime * 1000)
+      this.timer.createTimeout(launchSound, startTime * 1000)
     }
+    else {
+      launchSound()
+    }
+
     if (this.endTimeS) {
-      const duration = this.endTimeS - this.startTimeS
+      const duration = this.endTimeS
       this.timer.createTimeout(() => this.stop(), duration * 1000)
     }
   }

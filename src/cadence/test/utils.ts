@@ -1,5 +1,5 @@
 import { vi } from 'vitest'
-import { LoadedLoopMock } from '../src/LoadedLoop.spec'
+import { LoadedLoopMock } from '../src/v1/LoadedLoop.spec'
 
 export const AudioBufferMock = vi.fn(() => ({
   duration: 1,

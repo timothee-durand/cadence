@@ -15,7 +15,7 @@ const wasmContentTypePlugin = {
 };
  
 export default defineConfig({
-  base: process.env.APP_ENV === "production" ? '/cadence/playground' : '/',
+  base: process.env.APP_ENV === "production" ? '/v1/playground' : '/',
   plugins: [react(), wasmContentTypePlugin],
   resolve: {
     alias: {

@@ -1,7 +1,7 @@
 import { beforeAll, describe, it, expect, vi } from 'vitest'
 import { Song } from './types'
 import { AudioLoader, decodeAudioData } from './AudioLoader'
-import { AudioBufferMock, AudioContextMock } from '../test/utils'
+import { AudioBufferMock, AudioContextMock } from '../../test/utils'
 
 vi.stubGlobal('AudioBuffer', AudioBufferMock)
 vi.stubGlobal('AudioContext', AudioContextMock)

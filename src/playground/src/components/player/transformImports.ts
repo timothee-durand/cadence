@@ -5,7 +5,7 @@ type ParsedImport = { name: string, path: string, originalImport: string };
 
 function getImports(code: string): ParsedImport[] {
     let m: RegExpMatchArray | null;
-    let imports: ParsedImport[] = []
+    const imports: ParsedImport[] = []
     while ((m = importRegex.exec(code)) !== null) {
         // This is necessary to avoid infinite loops with zero-width matches
         if (m.index === importRegex.lastIndex) {
@@ -44,7 +44,7 @@ function getSamplePath({name, directory, samples}: {
 
 export function transformImports(code: string, samples: SampleDirectory[]): { code: string, cadenceImports: string } {
     let newCode = code;
-    let imports = getImports(code);
+    const imports = getImports(code);
     console.log(samples)
     console.log(imports)
     let cadenceImports = '';

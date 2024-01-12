@@ -8,13 +8,13 @@ outline: deep
 ## Installation
 
 ```bash
-npm install cadence-js
+npm install v1-js
 ```
 
 ## Usage
 
 ```typescript
-import {Cadence, Loop} from "cadence-js";
+import {Cadence, Loop} from "v1-js";
 
 const cadence = new Cadence();
 

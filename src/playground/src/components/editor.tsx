@@ -6,19 +6,26 @@ import {sampleDirectories} from "@/assets-list.ts";
 import {AddSamplePayload} from "@/components/samplesList/types.ts";
 
 
-const baseValue = `import type {Loop} from "cadence-js";
-import {Cadence} from "cadence-js";
-import {E2} from "guitar-nylon";
+const baseValue = `
+import { initCadence, loadSample, loop, wait } from "cadence-js";
 
-const cadence = new Cadence();
-const loop: Loop = {
-    startTime: "0s",
-    interval: "1s",
-    speed: 1,
-    sample: E2,
-    endTime: "30s"
+async function main() {
+    /** OUR CODE --- DON'T EDIT IT PLEASE */
+    const { playSample } = await initCadence();
+    /** YOUR CODE */
+
+    const bassAs1 = await loadSample("/samples/bass-electric//As1.mp3");
+    const bassCs2 = await loadSample("/samples/bass-electric//Cs2.mp3");
+
+   
+    
+    loop(async () => {
+        playSample(bassAs1);
+        await wait(500);
+        playSample(bassCs2);
+    }, 2000);
 }
-cadence.play(loop)
+main();
 `
 
 
@@ -55,9 +62,10 @@ async function createEditor(monaco: Monaco) {
     monaco.languages.typescript.typescriptDefaults.addExtraLib(samplesDeclaration, "samples");
     monaco.languages.typescript.typescriptDefaults.setCompilerOptions({
         allowNonTsExtensions: true,
-        noLib: true,
         importsNotUsedAsValues: "remove",
+        lib: ["es2018", "dom"],
     });
+    console.log(monaco.languages.typescript.typescriptDefaults.getCompilerOptions())
 }
 type CadenceEditorProps = {
     className?: string

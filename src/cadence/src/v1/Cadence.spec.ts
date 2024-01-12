@@ -2,7 +2,7 @@ import { Cadence } from './Cadence'
 import { Loop, Song } from './types'
 import { describe, expect, beforeEach, it, vi } from 'vitest'
 import { AudioLoader } from './AudioLoader'
-import { AudioBufferMock, AudioContextMock, AudioLoaderMock } from '../test/utils'
+import { AudioBufferMock, AudioContextMock, AudioLoaderMock } from '../../test/utils'
 
 vi.stubGlobal('AudioBuffer', AudioBufferMock)
 vi.stubGlobal('AudioContext', AudioContextMock)

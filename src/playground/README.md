@@ -13,7 +13,7 @@ pnpm install
 
 Generate the cadence build for playground (you'll have to do this each time you change the cadence code):
 ```bash
-cd ../cadence/ && pnpm generate:playground
+cd ../v1/ && pnpm generate:playground
 ```
 
 ### Usage

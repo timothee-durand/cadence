@@ -5,7 +5,7 @@ export interface Distorsion {
 
 export interface Fade {
   name: 'fade'
-  value: number
+  time: number
   type: 'in' | 'out'
 }
 

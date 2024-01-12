@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v2
+      - uses: pnpm/action-setup@cadence2
         with:
           version: 8
       - uses: actions/setup-node@v3
@@ -16,11 +16,11 @@ jobs:
           node-version: '18.16.0'
           registry-url: 'https://registry.npmjs.org'
       - name: Install Dependencies
-        working-directory: ./src/cadence
+        working-directory: ./src/v1
         run: pnpm i --frozen-lockfile
       - name: Check lint
-        working-directory: ./src/cadence
+        working-directory: ./src/v1
         run: pnpm run lint
       - name: Test
-        working-directory: ./src/cadence
+        working-directory: ./src/v1
         run: pnpm run test

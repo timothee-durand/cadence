@@ -24,7 +24,7 @@ Before you start contributing, ensure you have the following installed:
 
    ```bash
    git clone https://github.com/timothee-durand/cadence.git
-   cd cadence
+   cd v1
    ```
 
 2. Install dependencies:
@@ -36,7 +36,7 @@ Before you start contributing, ensure you have the following installed:
 3. Generate the cadence build for playground (you'll have to do this each time you change the cadence code):
 
    ```bash
-    cd ../cadence/ && pnpm generate:playground
+    cd ../v1/ && pnpm generate:playground
     ```
 
 ### Structure

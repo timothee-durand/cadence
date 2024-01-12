@@ -1,5 +1,5 @@
 import { beforeEach, describe, vi, it, expect } from 'vitest'
-import { AudioBufferMock, AudioContextMock, TimerMock } from '../test/utils'
+import { AudioBufferMock, AudioContextMock, TimerMock } from '../../test/utils'
 import { LoadedLoop } from './LoadedLoop'
 import { Loop } from './types'
 import { Timer } from './Timer'

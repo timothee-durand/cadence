@@ -25,7 +25,8 @@ export const CadencePlayer = forwardRef<CadencePlayerRef, CadencePlayerProps>(({
 
         const variableName = `cadence${Math.random().toString(36).substring(7)}`;
         script.type = 'module';
-        script.innerHTML = code + `\nwindow.${variableName} = cadence;`;
+        script.innerHTML = code.replace("const { playSample } = await initCadence();", `const { playSample, stopAll } = await initCadence();\nwindow.${variableName} = stopAll;`) ;
+        console.log(script.innerHTML)
         script.async = true;
         return {
             element: script,
@@ -61,12 +62,12 @@ export const CadencePlayer = forwardRef<CadencePlayerRef, CadencePlayerProps>(({
     function stopAll() {
         scripts.forEach((script) => {
             document.body.removeChild(script.element);
-            // @ts-ignore
+            // @ts-expect-error global variable is removed
             const global = window[script.globalVariableName]
-            if(global && global.stop) {
-                // @ts-ignore
-                global.stop();
-                // @ts-ignore
+            console.log(global)
+            if(global) {
+                global();
+                // @ts-expect-error global variable is removed
                 window[script.globalVariableName] = undefined;
             }
         })
@@ -87,7 +88,8 @@ export const CadencePlayer = forwardRef<CadencePlayerRef, CadencePlayerProps>(({
                 target: "es2020"
             }
         });
-        return `import {${assetsImports.cadenceImports}} from "./cadence.js";\n${result.code}`
+        const finalCode =  `import {${assetsImports.cadenceImports}} from "./cadence.js";\n${result.code}`
+        return finalCode;
     }
 
     useEffect(() => {

@@ -14,7 +14,7 @@ export type Time = `${number}s` | `${number}ms`
 
 export interface Loop {
   sample: string
-  interval: Time
+  interval?: Time
   sampleEffect?: Effect | Effect[]
   loopEffect?: Effect | Effect[]
   speed?: number

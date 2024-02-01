@@ -22,9 +22,6 @@ function filterSamples(sampleDirectories: CompleteSampleDirectory[], search: str
     return filteredDirectories
 }
 
-
-
-
 export const AssetsList: FC<{
     sampleDirectories: SampleDirectory[],
     onSampleClick: AddSampleCallback,
@@ -44,7 +41,7 @@ export const AssetsList: FC<{
             formattedName: formatDirectoryName(d.name)
         })))
     }, [sampleDirectories]);
-
+    console.log(search)
     return (
         <div className={cn('h-editor flex flex-col', className)}>
             <h3 className="mb-2 scroll-m-20 text-center text-xl font-bold tracking-tight">

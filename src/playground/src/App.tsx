@@ -5,7 +5,8 @@ import {AssetsList} from "@/components/samplesList/assetsList.tsx";
 import {sampleDirectories} from "@/assets-list.ts";
 import {Separator} from "@/components/ui/separator.tsx";
 import {ModeToggle} from "@/components/theme/mode-toggle.tsx";
-import ExampleList from "./components/examplesList/examplesList";
+import { ExampleList } from "./components/examplesList/examplesList";
+import { exampleDirectories } from "./examples-lists";
 
 function App() {
     const editorRef = useRef<CadenceEditorComponentType>(null)
@@ -43,7 +44,10 @@ function App() {
                 </h1>
             </div>
             <Separator/>
-            <ExampleList/>
+            <ExampleList
+                className="w-10/12"
+                examplesDirectory={exampleDirectories}
+            />
         </div>  
     </>;
 }

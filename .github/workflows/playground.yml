@@ -11,7 +11,7 @@ on:
 
 env:
   BASE_PATH: './src/playground'
-  CADENCE_BASE_PATH: './src/cadence'
+  CADENCE_BASE_PATH: './src/v1'
   DOCS_BASE_PATH: './docs'
 
 # Sets the GITHUB_TOKEN permissions to allow deployment to GitHub Pages
@@ -32,7 +32,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - uses: pnpm/action-setup@v2
+      - uses: pnpm/action-setup@cadence2
         name: Install pnpm
         with:
           version: 7
@@ -41,7 +41,7 @@ jobs:
         with:
           node-version: 18
           cache: 'pnpm'
-      - name: Build cadence for playground
+      - name: Build v1 for playground
         working-directory: ${{ env.CADENCE_BASE_PATH }}
         run: |
           pnpm i
@@ -85,4 +85,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v2
+        uses: actions/deploy-pages@cadence2

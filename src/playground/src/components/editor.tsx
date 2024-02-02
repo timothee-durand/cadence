@@ -3,29 +3,55 @@ import {CadencePlayer, CadencePlayerRef} from "@/components/player/player.tsx";
 import {SampleDirectory} from "@/samplesTypes.ts";
 import {Editor, Monaco} from "@monaco-editor/react";
 import {sampleDirectories} from "@/assets-list.ts";
-import {AddSamplePayload} from "@/components/samplesList/types.ts";
+import {getSamplePath} from "@/components/samplesList/utils.ts";
 
 
-const baseValue = `import type {Loop} from "cadence-js";
-import {Cadence} from "cadence-js";
-import {E2} from "guitar-nylon";
+const baseValue = `
 
-const cadence = new Cadence();
-const loop: Loop = {
-    startTime: "0s",
-    interval: "1s",
-    speed: 1,
-    sample: E2,
-    endTime: "30s"
+
+
+import { initCadence, loadSample, loop, wait } from "cadence-js";
+
+async function main() {
+    const { playSample, stopAll } = await initCadence();
+
+    const g2 = await loadSample("/samples/cello/G2.mp3");
+    const a2 = await loadSample("/samples/cello/As2.mp3");
+    const c2 = await loadSample("/samples/cello/C2.mp3");
+    const b2 = await loadSample("/samples/cello/B2.mp3");
+
+    const shortG2 = playSample(g2).withEffect({name : 'fadeOut', startTime: '300ms', duration: "300ms"})
+    const shortA2 = playSample(a2).withEffect({name : 'fadeOut', startTime: '300ms', duration: "300ms"})
+    const shortC2 = playSample(c2).withEffect({name : 'fadeOut', startTime: '300ms', duration: "300ms"})
+    const shortB2 = playSample(b2).withEffect({name : 'fadeOut', startTime: '300ms', duration: "300ms"})
+  
+    shortG2.start();
+    await wait(600);
+    shortG2.start();
+    await wait(600);
+    shortA2.start();
+    await wait(600);
+    shortC2.start();
+    await wait(600);
+    shortB2.start();
+    await wait(600)
+    shortA2.start();
+    await wait(600);
+
+    stopAll()
 }
-cadence.play(loop)
+main();
+
+
+
 `
 
 
 async function fetchCadenceTypes(): Promise<string> {
     try {
         const types = await fetch('cadence.d.ts').then((res) => res.text());
-        return types.replace("declare module \"index\"", 'declare module "cadence-js"')
+        const declarationFile = makeDeclarationFile(sampleDirectories);
+        return types.replace("declare module \"index\"", 'declare module "cadence-js"').replace('export function loadSample(path: string,', `${declarationFile}\nexport function loadSample(path: SamplePaths | string,`)
     } catch (e) {
         console.error(e);
         return ''
@@ -34,39 +60,32 @@ async function fetchCadenceTypes(): Promise<string> {
 }
 
 function makeDeclarationFile(sampleDirectories: SampleDirectory[]): string {
-    let declarationFile = '';
+    const paths = sampleDirectories.map((directory) => {
+        return directory.samples.map((sample) => {
+            return getSamplePath(directory, sample)
+        })
+    }).flat().join(' | ');
 
-    sampleDirectories.forEach((directory) => {
-        declarationFile += `declare module "${directory.name}" {\n`;
-        directory.samples.forEach((sample) => {
-            declarationFile += `export const ${sample.name}: Loop;\n`;
-        });
-        declarationFile += `}\n`;
-    })
-
-
-    return declarationFile
+    return 'type SamplePaths = ' + paths + ';'
 }
 
 async function createEditor(monaco: Monaco) {
     const types = await fetchCadenceTypes();
-    const samplesDeclaration = makeDeclarationFile(sampleDirectories);
     monaco.languages.typescript.typescriptDefaults.addExtraLib(types, "cadence-js");
-    monaco.languages.typescript.typescriptDefaults.addExtraLib(samplesDeclaration, "samples");
     monaco.languages.typescript.typescriptDefaults.setCompilerOptions({
         allowNonTsExtensions: true,
-        noLib: true,
         importsNotUsedAsValues: "remove",
+        lib: ["es2018", "dom"],
     });
+    console.log(monaco.languages.typescript.typescriptDefaults.getCompilerOptions())
 }
+
 type CadenceEditorProps = {
     className?: string
 };
 
 
-export type CadenceEditorComponentType = {
-    addSampleImport: (payload: AddSamplePayload) => void
-} & CadencePlayerRef
+export type CadenceEditorComponentType =  CadencePlayerRef
 
 
 export const CadenceEditor = forwardRef<CadenceEditorComponentType, CadenceEditorProps>(({className}, ref) => {
@@ -77,9 +96,6 @@ export const CadenceEditor = forwardRef<CadenceEditorComponentType, CadenceEdito
     }, []);
 
     useImperativeHandle(ref, () => ({
-        addSampleImport({sampleName, directoryName}) {
-            setCode('import { ' + sampleName + ' } from "' + directoryName + '";\n' + code);
-        },
         play() {
             cadencePlayerRef.current?.play();
         },

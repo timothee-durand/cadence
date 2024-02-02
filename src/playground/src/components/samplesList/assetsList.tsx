@@ -2,11 +2,12 @@ import {FC, useEffect, useState} from "react";
 import {SampleDirectory} from "@/samplesTypes.ts";
 import {DirectoryItem} from "@/components/samplesList/sampleDirectory.tsx";
 import {Accordion} from "@/components/ui/accordion.tsx";
-import {AddSampleCallback, CompleteSampleDirectory} from "@/components/samplesList/types.ts";
+import { CompleteSampleDirectory} from "@/components/samplesList/types.ts";
 import {ScrollArea} from "@/components/ui/scroll-area"
 import {cn} from "@/lib/utils.ts";
 import {AssetsSearchForm} from "@/components/samplesList/assetsSearch.tsx";
 import {SampleItem} from "@/components/samplesList/sampleItem.tsx";
+import {copySamplePathToClipboard} from "@/components/samplesList/utils.ts";
 
 
 function formatDirectoryName(name: string) {
@@ -27,9 +28,8 @@ function filterSamples(sampleDirectories: CompleteSampleDirectory[], search: str
 
 export const AssetsList: FC<{
     sampleDirectories: SampleDirectory[],
-    onSampleClick: AddSampleCallback,
     className?: string
-}> = ({sampleDirectories, onSampleClick, className}) => {
+}> = ({sampleDirectories, className}) => {
     const [search, setSearch] = useState("")
     const [formattedDirectories, setFormattedDirectories] = useState<CompleteSampleDirectory[]>([])
     const [filteredDirectories, setFilteredDirectories] = useState<CompleteSampleDirectory[]>([])
@@ -56,15 +56,14 @@ export const AssetsList: FC<{
                     <Accordion type="single" collapsible className="px-4">
                         {
                             formattedDirectories.map((d, i) => (
-                                <DirectoryItem directory={d} key={`d-${i}`} onSampleClick={onSampleClick}/>
+                                <DirectoryItem directory={d} key={`d-${i}`} />
                             ))
                         }
                     </Accordion>) : (
                     <div>
                         {filteredDirectories.map((d, i) => (
                             d.samples.map((s, j) => (
-                                <SampleItem instrument={d.formattedName} sample={s} key={`s-${i}-${j}`}
-                                            onClick={() => onSampleClick({sampleName: s.name, directoryName: d.name})}/>
+                                <SampleItem onClick={() => copySamplePathToClipboard(d, s)} instrument={d.formattedName} sample={s} key={`s-${i}-${j}`} />
                             ))
                         ))}
                     </div>

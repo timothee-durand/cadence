@@ -23,14 +23,14 @@ For a demonstration of Cadence.js in action, check out our [playground](https://
 To install Cadence.js in your project, use npm:
 
 ```bash
-npm install cadence
+npm install v1
 ```
 
 ### Usage
 
 ```typescript
 // Example code snippet using Cadence.js
-import { Cadence } from 'cadence';
+import { Cadence } from 'v1';
 
 const cadence = new Cadence();
 // Your code here...

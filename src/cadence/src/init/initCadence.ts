@@ -1,4 +1,4 @@
-import { PlayerOptions, playSample, SampleNode } from './playSample'
+import { PlayerOptions, playSample, SampleNode } from '../play/playSample'
 
 export type PreloadResult = {
   [key: string]: AudioBuffer

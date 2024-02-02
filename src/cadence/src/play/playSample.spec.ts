@@ -1,6 +1,8 @@
-import { playSample, Effect, PlayerOptions } from './playSample'
+import { playSample, PlayerOptions } from './playSample'
 import { describe, vi, it, expect, beforeEach } from 'vitest'
 import { AudioContextMock } from '../../test/utils'
+import { Distorsion } from './distorsion'
+import { Fade } from './fades'
 describe('playSample function', () => {
   let audioContext: AudioContext
   let audioBuffer: AudioBuffer
@@ -28,27 +30,28 @@ describe('playSample function', () => {
     expect(spy).toHaveBeenCalled()
   })
 
-  it('should apply distorsion effect', () => {
-    const effect: Effect = { name: 'distorsion', value: 400 }
+  it('should add effect only at playTime', () => {
     const sampleNode = playSample({ audioContext, audioBuffer, options })
-    const result = sampleNode.withEffect(effect)
-    expect(result).toBe(sampleNode)
+    const effect: Distorsion = { name: 'distorsion', value: 2 }
+    sampleNode.withEffect(effect)
+    expect(audioContext.createWaveShaper).not.toHaveBeenCalled()
+    sampleNode.start()
     expect(audioContext.createWaveShaper).toHaveBeenCalled()
   })
 
-  it('should apply fade in effect', () => {
-    const effect: Effect = { name: 'fade', time: '1s', type: 'in' }
+  it('should create wavesharper on distorsion effect', () => {
     const sampleNode = playSample({ audioContext, audioBuffer, options })
-    const result = sampleNode.withEffect(effect)
-    expect(result).toBe(sampleNode)
-    expect(audioContext.createGain).toHaveBeenCalled()
+    const effect: Distorsion = { name: 'distorsion', value: 2 }
+    sampleNode.withEffect(effect)
+    sampleNode.start()
+    expect(audioContext.createWaveShaper).toHaveBeenCalled()
   })
 
-  it('should apply fade out effect', () => {
-    const effect: Effect = { name: 'fade', time: '1s', type: 'out' }
+  it('should use the gain functions to fade in and out', () => {
     const sampleNode = playSample({ audioContext, audioBuffer, options })
-    const result = sampleNode.withEffect(effect)
-    expect(result).toBe(sampleNode)
+    const effect: Fade = { name: 'fadeIn', endTime: '200ms' }
+    sampleNode.withEffect(effect)
+    sampleNode.start()
     expect(audioContext.createGain).toHaveBeenCalled()
   })
 })

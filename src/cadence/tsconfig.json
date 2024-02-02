@@ -1,6 +1,6 @@
 {
   "include": [
-    "src/cadence2/index.ts"
+    "src/index.ts"
   ],
   "exclude": [
     "node_module",

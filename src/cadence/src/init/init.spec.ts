@@ -1,4 +1,4 @@
-import { initCadence } from './init'
+import { initCadence } from './initCadence'
 import { describe, vi, it, expect, beforeEach } from 'vitest'
 import { AudioContextMock } from '../../test/utils'
 

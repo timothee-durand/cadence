@@ -19,8 +19,8 @@ async function main() {
 
    
     
-    //playSample(bassAs1).withEffect({type: "in", name:"fade", time: '1s'})
-    playSample(bassAs1).withEffect({ name:"distorsion", value: 500})
+    playSample(bassAs1).withEffect({ name: "fadeOut", startTime: '200ms', duration: "200ms"}).start();
+    //playSample(bassAs1).withEffect({ name:"distorsion", value: 500}).start();
 }
 main();
 `

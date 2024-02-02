@@ -1,7 +1,18 @@
-import { PlayerOptions, playSample } from './playSample'
+import { PlayerOptions, playSample, SampleNode } from './playSample'
 
-export async function initCadence(preload?: () => Promise<void>, audioContext: AudioContext = new AudioContext()) {
-  if (preload) await preload()
+export type PreloadResult = {
+  [key: string]: AudioBuffer
+}
+
+export type Preload = () => Promise<PreloadResult>
+
+export type InitResult = {
+  playSample: (audioBuffer: AudioBuffer, options?: PlayerOptions) => SampleNode
+  stopAll: () => void
+  samples?: PreloadResult
+}
+
+export async function initCadence(preload?: Preload, audioContext: AudioContext = new AudioContext()): Promise<InitResult> {
   return {
     playSample: (audioBuffer: AudioBuffer, options?: PlayerOptions) => {
       return playSample({ audioBuffer, audioContext, options })
@@ -9,5 +20,6 @@ export async function initCadence(preload?: () => Promise<void>, audioContext: A
     stopAll: () => {
       audioContext.close()
     },
+    samples: preload ? await preload() : undefined,
   }
 }

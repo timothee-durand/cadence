@@ -1,4 +1,4 @@
-import { convertTimeToS } from '../utils/convertTime'
+import { convertTimeToMs, convertTimeToS } from '../utils/convertTime'
 
 export type Time = `${number}s` | `${number}ms`
 
@@ -7,11 +7,18 @@ export interface Distorsion {
   value: number
 }
 
-export interface Fade {
-  name: 'fade'
-  time: Time
-  type: 'in' | 'out'
+export interface FadeIn {
+  name: 'fadeIn'
+  endTime: Time
 }
+
+export interface FadeOut {
+  name: 'fadeOut'
+  startTime: Time
+  duration: Time
+}
+
+export type Fade = FadeIn | FadeOut
 
 export type Effect = Distorsion | Fade
 
@@ -44,23 +51,27 @@ function makeDistortionCurve(amount: number): Float32Array {
   return curve
 }
 
-function applyFade({ effect, audioContext, volume }: {
-  effect: Fade
+type FunctionEffect = () => void
+
+function applyFadeIn({ effect, volume, gainNode }: {
+  effect: FadeIn
   audioContext: AudioContext
   volume: number
-}): GainNode {
-  const gainNode = audioContext.createGain()
-  switch (effect.type) {
-    case 'in':
-      gainNode.gain.value = 0
-      gainNode.gain.exponentialRampToValueAtTime(volume, audioContext.currentTime + convertTimeToS(effect.time))
-      return gainNode
-    case 'out':
-      setTimeout(() => {
-        gainNode.gain.linearRampToValueAtTime(0, audioContext.currentTime + convertTimeToS(effect.time))
-      }, convertTimeToS(effect.time))
-      return gainNode
+  gainNode: GainNode
+}): FunctionEffect {
+  return () => {
+    gainNode.gain.value = 0
+    gainNode.gain.linearRampToValueAtTime(volume, convertTimeToS(effect.endTime))
   }
+}
+
+function applyFadeOut({ effect, gainNode }: {
+  effect: FadeOut
+  gainNode: GainNode
+}): FunctionEffect {
+  return () => setTimeout(() => {
+    gainNode.gain.linearRampToValueAtTime(0, convertTimeToS(effect.duration))
+  }, convertTimeToMs(effect.startTime))
 }
 
 export interface PlayerOptions {
@@ -81,17 +92,20 @@ export function playSample({ audioContext, audioBuffer, options }: {
   const source = audioContext.createBufferSource()
   source.buffer = audioBuffer
   source.playbackRate.value = playerOptions.speed
+  const nodeEffects: AudioNode[] = []
+  const liveEffects: FunctionEffect[] = []
   const gainNode = audioContext.createGain()
-  gainNode.gain.value = playerOptions.volume
-  const effects: AudioNode[] = []
   return {
     withEffect(effect: Effect): SampleNode {
       switch (effect.name) {
         case 'distorsion':
-          effects.push(applyDistorsion({ effect, audioContext }))
+          nodeEffects.push(applyDistorsion({ effect, audioContext }))
           break
-        case 'fade':
-          effects.push(applyFade({ effect, audioContext, volume: playerOptions.volume }))
+        case 'fadeIn':
+          liveEffects.push(applyFadeIn({ effect, audioContext, volume: playerOptions.volume, gainNode }))
+          break
+        case 'fadeOut':
+          liveEffects.push(applyFadeOut({ effect, gainNode }))
           break
       }
       return this
@@ -100,11 +114,15 @@ export function playSample({ audioContext, audioBuffer, options }: {
       source.stop()
     },
     start() {
-      effects.forEach((effect) => {
-        source.connect(effect)
-        effect.connect(gainNode)
+      let lastNode: AudioNode = source
+      nodeEffects.forEach((effect) => {
+        lastNode.connect(effect)
+        lastNode = effect
       })
+      lastNode.connect(gainNode)
+      gainNode.connect(audioContext.destination)
       source.start()
+      liveEffects.forEach(effect => effect())
     },
   }
 }

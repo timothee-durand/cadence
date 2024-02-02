@@ -29,9 +29,8 @@ function App() {
                 <CadenceEditor ref={editorRef} className="w-8/12"/>
                 <AssetsList
                     className="w-4/12"
-                    sampleDirectories={sampleDirectories} onSampleClick={(payload) => {
-                    editorRef.current?.addSampleImport(payload)
-                }}/>
+                    sampleDirectories={sampleDirectories}
+                />
 
             </div>
 

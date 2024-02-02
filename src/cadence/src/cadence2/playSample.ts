@@ -24,21 +24,22 @@ export type Effect = Distorsion | Fade
 
 export interface SampleNode {
   withEffect(effect: Effect): SampleNode
-
   stop(): void
-
   start(): void
 }
 
-function applyDistorsion({ effect, audioContext }: { effect: Distorsion, audioContext: AudioContext }): WaveShaperNode {
-  const distortion = audioContext.createWaveShaper()
-  distortion.curve = makeDistortionCurve(effect.value)
-  distortion.oversample = '4x'
-  return distortion
+type NodeEffect = (context: { audioContext: AudioContext }) => AudioNode
+
+function applyDistorsion({ effect }: { effect: Distorsion }): NodeEffect {
+  return ({ audioContext }) => {
+    const distortion = audioContext.createWaveShaper()
+    distortion.curve = makeDistortionCurve(effect.value)
+    distortion.oversample = '4x'
+    return distortion
+  }
 }
 
 function makeDistortionCurve(amount: number): Float32Array {
-  const k = typeof amount === 'number' ? amount : 50
   const nSamples = 44100
   const curve = new Float32Array(nSamples)
   const deg = Math.PI / 180
@@ -46,37 +47,47 @@ function makeDistortionCurve(amount: number): Float32Array {
   let x
   for (; i < nSamples; ++i) {
     x = (i * 2) / nSamples - 1
-    curve[i] = ((3 + k) * x * 20 * deg) / (Math.PI + k * Math.abs(x))
+    curve[i] = ((3 + amount) * x * 20 * deg) / (Math.PI + amount * Math.abs(x))
   }
   return curve
 }
 
-type FunctionEffect = () => void
+type LiveEffect = (context: { gainNode: GainNode, source: AudioBufferSourceNode }) => void
 
-function applyFadeIn({ effect, volume, gainNode }: {
+function applyFadeIn({ effect, volume }: {
   effect: FadeIn
-  audioContext: AudioContext
   volume: number
-  gainNode: GainNode
-}): FunctionEffect {
-  return () => {
+}): LiveEffect {
+  return ({ gainNode }) => {
     gainNode.gain.value = 0
     gainNode.gain.linearRampToValueAtTime(volume, convertTimeToS(effect.endTime))
   }
 }
 
-function applyFadeOut({ effect, gainNode }: {
+function applyFadeOut({ effect }: {
   effect: FadeOut
-  gainNode: GainNode
-}): FunctionEffect {
-  return () => setTimeout(() => {
-    gainNode.gain.linearRampToValueAtTime(0, convertTimeToS(effect.duration))
+}): LiveEffect {
+  return ({ gainNode }) => setTimeout(() => {
+    gainNode.gain.linearRampToValueAtTime(0.000000001, convertTimeToS(effect.duration))
   }, convertTimeToMs(effect.startTime))
 }
 
 export interface PlayerOptions {
   volume?: number
   speed?: number
+}
+
+function cloneAudioBuffer(fromAudioBuffer: AudioBuffer) {
+  const audioBuffer = new AudioBuffer({
+    length: fromAudioBuffer.length,
+    numberOfChannels: fromAudioBuffer.numberOfChannels,
+    sampleRate: fromAudioBuffer.sampleRate,
+  })
+  for (let channelI = 0; channelI < audioBuffer.numberOfChannels; ++channelI) {
+    const samples = fromAudioBuffer.getChannelData(channelI)
+    audioBuffer.copyToChannel(samples, channelI)
+  }
+  return audioBuffer
 }
 
 export function playSample({ audioContext, audioBuffer, options }: {
@@ -89,40 +100,45 @@ export function playSample({ audioContext, audioBuffer, options }: {
     speed: 1,
     ...options,
   }
-  const source = audioContext.createBufferSource()
-  source.buffer = audioBuffer
-  source.playbackRate.value = playerOptions.speed
-  const nodeEffects: AudioNode[] = []
-  const liveEffects: FunctionEffect[] = []
-  const gainNode = audioContext.createGain()
+  const nodeEffects: NodeEffect[] = []
+  const liveEffects: LiveEffect[] = []
+  let source: AudioBufferSourceNode | null = null
   return {
     withEffect(effect: Effect): SampleNode {
       switch (effect.name) {
         case 'distorsion':
-          nodeEffects.push(applyDistorsion({ effect, audioContext }))
+          nodeEffects.push(applyDistorsion({ effect }))
           break
         case 'fadeIn':
-          liveEffects.push(applyFadeIn({ effect, audioContext, volume: playerOptions.volume, gainNode }))
+          liveEffects.push(applyFadeIn({ effect, volume: playerOptions.volume }))
           break
         case 'fadeOut':
-          liveEffects.push(applyFadeOut({ effect, gainNode }))
+          liveEffects.push(applyFadeOut({ effect }))
           break
       }
       return this
     },
     stop() {
+      if (source === null)
+        throw new Error('The sound has not started yet')
       source.stop()
+      source = null
     },
     start() {
+      source = audioContext.createBufferSource()
+      source.buffer = cloneAudioBuffer(audioBuffer)
+      source.playbackRate.value = playerOptions.speed
       let lastNode: AudioNode = source
       nodeEffects.forEach((effect) => {
-        lastNode.connect(effect)
-        lastNode = effect
+        const nodeEffect = effect({ audioContext })
+        lastNode.connect(nodeEffect)
+        lastNode = nodeEffect
       })
+      const gainNode = audioContext.createGain()
       lastNode.connect(gainNode)
       gainNode.connect(audioContext.destination)
       source.start()
-      liveEffects.forEach(effect => effect())
+      liveEffects.forEach(effect => effect({ gainNode, source: source! }))
     },
   }
 }
